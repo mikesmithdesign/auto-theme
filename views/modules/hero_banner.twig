@@ -1,0 +1,32 @@
+<div class="hero-banner {% if module.shallow_banner == 1 %}shallow{% endif %}">
+	<div class="overlay 	{% if module.background_image == '' %}no-bg{% endif %}"></div>
+
+	{% if module.background_image %}
+		<img class="bg" src="{{get_image(module.background_image).src}}" alt="{{get_image(module.background_image).alt}}">
+	{% endif %}
+	<div class="container">
+		<div class="row">
+			<div class="text">
+				{% if module.heading %}
+					<h1>{{module.heading}}</h1>
+				{% endif %}
+				{% if module.text %}
+					{{module.text}}
+				{% endif %}
+				{% if module.cta %}
+					<a href="{{module.cta.url}}" target="{{module.cta.target}}" class="btn">
+						{{module.cta.title}}
+						<i class="fas fa-angle-double-right"></i>
+					</a>
+				{% endif %}
+				{% if module.bottom_content %}
+					{{module.bottom_content}}
+				{% endif %}
+			</div>
+
+			{% if module.hide_tab_image != 1 %}
+				<img class="tab" src="{{get_image(options.tab_image).src}}" alt="{{get_image(options.tab_image).alt}}">
+			{% endif %}
+		</div>
+	</div>
+</div>

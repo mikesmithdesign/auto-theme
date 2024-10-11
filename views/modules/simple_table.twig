@@ -1,0 +1,30 @@
+<div class="table-wrapper {{module.background}}">
+	<div class="container">
+		<div class="row">
+			{% if module.heading %}
+				<h2>{{module.heading}}</h2>
+			{% endif %}
+
+			{% if module.top_text %}
+				{{module.top_text}}
+			{% endif %}
+
+			<table class="simple">
+				<tbody>
+					{% for row in module.table %}
+						<tr>
+							<td>{{row.column_1}}</td>
+							<td>{{row.column_2}}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+			{% if module.bottom_text %}
+				{{module.bottom_text}}
+			{% endif %}
+
+
+		</div>
+	</div>
+</div>

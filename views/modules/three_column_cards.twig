@@ -1,0 +1,26 @@
+<div class="card-wrapper {{module.background}}">
+	<div class="container">
+		<div class="row">
+			{% if module.heading %}
+				<h2>{{module.heading}}</h2>
+			{% endif %}
+			<div class="cards">
+				{% for card in module.cards %}
+					<div class="card">
+						<div class="card-img">
+							<img src="{{get_image(card.image).src}}" alt="{{get_image(card.image).alt}}}">
+						</div>
+						<div class="card-text">
+							<h3>{{card.title}}</h3>
+							{{card.text}}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			{% if module.bottom_text %}
+				{{module.bottom_text}}
+			{% endif %}
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,77 @@
+{% set has_tags = false %}
+{% for product in module.product_info %}
+	{% if product.tag %}
+		{% set has_tags = true %}
+	{% endif %}
+{% endfor %}
+<div class="price-comparison {{module.background}}">
+	{% if  module.background_image %}
+		<img src="{{get_image(module.background_image).src}}" alt="{{get_image(module.background_image).alt}}">
+	{% endif %}
+	<div class="container">
+		<div class="row">
+			{% if module.heading %}
+				<h2>{{module.heading}}</h2>
+			{% endif %}
+
+			{% if module.text %}
+				{{module.text}}
+			{% endif %}
+
+			<div class="slider-wrapper">
+				<div class="controls">
+					<button class="prev">
+						<i class="fas fa-angle-left"></i>
+					</button>
+					<button class="next">
+						<i class="fas fa-angle-right"></i>
+					</button>
+				</div>
+				<div class="comparison-tables">
+					{% for product in module.product_info %}
+						<div class="table-slide">
+							<div class="product-card">
+								{% if product.images %}
+									<div class="img-slider">
+										{% for image in product.images %}
+											<div class="img">
+												<img src="{{get_image(image).src}}" alt="{{get_image(image).alt}}">
+											</div>
+										{% endfor %}
+									</div>
+								{% endif %}
+								{% if product.ribbon %}
+									<span class="ribbon">{{product.ribbon}}</span>
+								{% endif %}
+								<h3>{{product.title}}</h3>
+								{% if product.subheading %}
+									<h4>{{product.subheading}}</h4>
+								{% endif %}
+								<figure class="{% if product.small_price %}small{% endif %}">{{product.price}}</figure>
+								{% if has_tags %}
+									{% if product.tag %}
+										<span class="tag">{{product.tag}}</span>
+									{% else %}
+										<span class="tag placeholder">&nbsp;</span>
+									{% endif %}
+								{% endif %}
+								<ul>
+									{% for feature in product.features %}
+										<li>{{feature.feature}}</li>
+									{% endfor %}
+								</ul>
+								{% if product.cta %}
+									<a href="{{product.cta.link}}" target="{{product.cta.target}}" class="btn">
+										{{product.cta.title}}
+										<i class="fas fa-angle-double-right"></i>
+									</a>
+								{% endif %}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

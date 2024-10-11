@@ -1,0 +1,65 @@
+<div class="hero-banner landing-page">
+	<div class="container">
+		<div class="row">
+			<div class="text">
+				{% if module.heading %}
+					<h1>{{module.heading}}</h1>
+				{% endif %}
+				{% if module.text %}
+					{{module.text}}
+				{% endif %}
+				{% if module.ctas %}
+					<div class="links">
+						{% set cta_index = 1 %}
+						{% for cta in module.ctas %}
+							{% if cta.type == 'link' %}
+								<a href="{{cta.cta.url}}" target="{{cta.cta.target}}" class="btn {{cta.colour}} {{cta.style}}">
+									{{cta.cta.title}}
+									<i class="fas fa-angle-double-right"></i>
+								</a>
+							{% else %}
+								<button class="btn" data-trigger="landing-{{module_index}}-cta-{{cta_index}}">
+									{{cta.button_text}}
+									<i class="fas fa-angle-double-right"></i>
+								</button>
+
+							{% endif %}
+							{% set cta_index = cta_index + 1 %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+			<div class="img-wrapper">
+				<img src="{{get_image(module.image).src}}" alt="{{get_image(module.image).alt}}">
+			</div>
+		</div>
+	</div>
+</div>
+
+{% set cta_index = 1 %}
+{% for cta in module.ctas %}
+	{% if cta.type == 'popup' %}
+		<div class="pop-up-overlay" id="landing-{{module_index}}-cta-{{cta_index}}">
+			<button class="close">
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+			<div class="container">
+				<div class="row">
+					<div class="pop-up form">
+						{% if cta.pop_up.heading %}
+							<h2>{{cta.pop_up.heading}}</h2>
+						{% endif %}
+						{% if cta.pop_up.text %}
+							{{cta.pop_up.text}}
+						{% endif %}
+
+						{% if cta.pop_up.form_code %}
+							{{cta.pop_up.form_code}}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	{% set cta_index = cta_index + 1 %}
+{% endfor %}

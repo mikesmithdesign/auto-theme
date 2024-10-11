@@ -1,0 +1,80 @@
+<div class="product-comparison">
+
+	<div class="container">
+		<div class="row">
+			{% if module.heading %}
+				<h2>{{module.heading}}</h2>
+			{% endif %}
+
+			{% if module.text %}
+				{{module.text}}
+			{% endif %}
+
+			<div class="slider-wrapper">
+				{% include 'partials/halftone.twig' %}
+
+				<div class="controls">
+					<button class="prev">
+						<i class="fas fa-angle-left"></i>
+					</button>
+					<button class="next">
+						<i class="fas fa-angle-right"></i>
+					</button>
+				</div>
+				<div class="comparison-slider">
+					{% for product in module.product_info %}
+						<div class="card-slide">
+							<div class="product-card">
+
+								<div class="front">
+									<div class="title">
+										<h3>{{product.title}}</h3>
+										<h4>{{product.subheading}}</h4>
+									</div>
+
+									<div class="text">
+										<div class="img-wrapper">
+											<img src="{{get_image(product.image).src}}" alt="{{get_image(product.image).alt}}">
+										</div>
+										{{product.text}}
+										<div class="features">
+											<ul>
+												{% for feature in product.features %}
+													<li>
+														<div class="icon {% if feature.icon != 'tick' %} red {% endif %}">
+
+															{% if feature.icon == 'tick' %}
+																<i class="fas fa-check"></i>
+															{% else  %}
+																<i class="fas fa-xmark"></i>
+															{% endif %}
+														</div>
+
+														<span>{{feature.feature}}</span>
+													</li>
+												{% endfor %}
+											</ul>
+										</div>
+									</div>
+									{% if product.cta %}
+										<a class="btn" href="{{product.cta.url}}" target="{{product.cta.target}}">
+											{{product.cta.title}}
+											<i class="fas fa-angle-double-right"></i>
+										</a>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+
+					{% endfor %}
+				</div>
+			</div>
+			<div class="bottom-text">
+				{% if module.bottom_text %}
+					{{module.bottom_text}}
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+</div>

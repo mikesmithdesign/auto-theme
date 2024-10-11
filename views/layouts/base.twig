@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{{ function('wp_head') }}
+		<!-- TrustBox script -->
+		<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+		<!-- End TrustBox script -->
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ site.title }}</title>
+		{% include 'partials/customiser.twig' %}
+
+	</head>
+	<body>
+
+		<a href="https://wa.me/+447985514265" target="_blank" class="icon-bar-hover-whatsapp">
+			<i class="fab fa-whatsapp"></i>
+		</a>
+
+		{% set page_specific_popup_exists = false %}
+		{% for popup in options.pop_ups %}
+			{% if popup.location != 'site' and  popup.page == post.id %}
+				{% set page_specific_popup_exists = true %}
+				<div class="pop-up-overlay" id="{{popup.unique_id}}" data-expiry={{popup.expiry_time}}>
+					<button class="close">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+					<div class="container">
+						<div class="row">
+							<div class="pop-up">
+								{% if popup.heading %}
+									<h2>
+										{{popup.heading}}
+									</h2>
+								{% endif %}
+								{% if popup.image %}
+									<img src="{{get_image(popup.image).src}}" alt="{{get_image(popup.image).alt}}">
+								{% endif %}
+								{% if popup.content %}
+									{{popup.content}}
+								{% endif %}
+								{% if popup.cta %}
+									<a href="{{popup.cta.link}}" target="{{popup.cta.target}}" class="btn">
+										{{popup.cta.title}}
+										<i class="fas fa-angle-double-right"></i>
+									</a>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+		{% if page_specific_popup_exists == false %}
+			{% for popup in options.pop_ups %}
+				{% if popup.location == 'site' %}
+					<div class="pop-up-overlay" id="{{popup.unique_id}}" data-expiry={{popup.expiry_time}}>
+						<button class="close">
+							<i class="fa-solid fa-xmark"></i>
+						</button>
+						<div class="container">
+							<div class="row">
+								<div class="pop-up">
+									{% if popup.heading %}
+										<h2>{{popup.heading}}
+											{{page_specific_popup_exists}}</h2>
+									{% endif %}
+									{% if popup.image %}
+										<img src="{{get_image(popup.image).src}}" alt="{{get_image(popup.image).alt}}">
+									{% endif %}
+									{% if popup.content %}
+										{{popup.content}}
+									{% endif %}
+									{% if popup.cta %}
+										<a href="{{popup.cta.link}}" target="{{popup.cta.target}}" class="btn">
+											{{popup.cta.title}}
+											<i class="fas fa-angle-double-right"></i>
+										</a>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					</div>
+
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+
+
+		{% include 'partials/header.twig' %}
+		<main>
+			{% block content %}{% endblock %}
+		</main>
+		{% include 'partials/footer.twig' %}{{ function('wp_footer') }}</body>
+</html></body></html></body></html>

@@ -1,0 +1,77 @@
+{% extends 'layouts/base.twig' %}
+{% block content %}
+	<div class="page-builder">
+		<div class="hero-banner">
+			<div class="overlay"></div>
+			<img class="bg" src="/wp-content/uploads/2024/09/5.webp}">
+			<div class="container">
+				<div class="row">
+					<div class="text">
+						<h1>Search Results for "{{title}}"</h1>
+					</div>
+					<img class="tab" src="{{get_image(options.tab_image).src}}" alt="{{get_image(options.tab_image).alt}}">
+				</div>
+			</div>
+		</div>
+		<div class="search-results">
+			<div class="container">
+				<div class="row">
+					<form role="search" class="search" method="get" action="{{site.url}}">
+						<input type="search" value="{{title}}" name="s" id="s" placeholder="Search Trackers">
+						<button type="submit">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</button>
+					</form>
+					{% set results = 0 %}
+					{% for post in posts %}
+						{% if post.post_type == 'product' %}
+							{% set results = results + 1 %}
+						{% endif %}
+					{% endfor %}
+					{% if results > 0 %}
+						<div class="item-listing">
+							{% for post in posts %}
+								{% if post.post_type == 'product' %}
+									<a href="{{post.link}}" class="item-card">
+										<div class="item-img">
+											<img src="{{get_image(post.main_image).src}}" alt="{{get_image(post.main_image).src}}">
+										</div>
+
+										<div class="item-text" data-match-height-enable="(min-width: 1024px)" data-match-height="post">
+											{% if post.best_seller == 1 %}
+												<span class="tag">BEST SELLER</span>
+											{% endif %}
+											<h3>{{post.title}}</h3>
+											<ul class="fa-ul">
+												{% for item in post.overview %}
+													<li>
+														<span class="fa-li">
+															<i class="fa-solid fa-check"></i>
+														</span>
+														{{item.info}}
+													</li>
+												{% endfor %}
+											</ul>
+										</div>
+										<div class="buttons">
+											<div class="price">
+												{{post.price}}
+											</div>
+											<div class="btn">
+												Shop Now
+												<i class="fas fa-angle-double-right"></i>
+											</div>
+										</div>
+									</a>
+								{% endif %}
+							{% endfor %}
+						</div>
+					{% else %}
+						<p>No results found.</p>
+
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

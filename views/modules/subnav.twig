@@ -1,0 +1,27 @@
+<div class="subnav {{module.background}}">
+	<div class="container">
+		<div class="row">
+			<div class="wrapper {% if module.images == 1 %} images {% endif %}">
+
+				{% if module.title %}
+					<h2>{{module.title}}</h2>
+				{% endif %}
+				<nav>
+					<ul>
+						{% for item in module.navigation %}
+							<li>
+								<a href="{{item.link.url}}" target="{{item.link.target}}">
+									{% if item.image %}
+										<img src="{{get_image(item.image).src}}" alt="{{get_image(item.link).src}}">
+									{% endif %}
+									{{item.link.title}}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+
+				</div>
+			</nav>
+		</div>
+	</div>
+</div>

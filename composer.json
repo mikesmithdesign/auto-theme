@@ -1,0 +1,13 @@
+{
+  "name": "auto-theme",
+  "type": "wordpress-theme",
+  "require": {
+    "timber/timber": "*"
+  },
+  "license": "MIT",
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  }
+}

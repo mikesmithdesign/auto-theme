@@ -1,0 +1,92 @@
+.coloured-boxes {
+  @include standard-padding;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .box-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+    color: var(--text);
+
+    @media screen and (max-width: 767px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .coloured-box {
+      border-radius: var(--radius);
+      padding: 4.5rem 5rem;
+
+      @media screen and (max-width: 1439px) {
+        padding: 4rem 4.5rem;
+      }
+
+      @media screen and (max-width: 1279px) {
+        padding: 3.5rem 4rem;
+      }
+
+      @media screen and (max-width: 1023px) {
+        padding: 3rem 3.5rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        padding: 4rem 4.5rem 5rem;
+      }
+
+      @media screen and (max-width: 639px) {
+        padding: 3.5rem 4rem 4.5rem;
+      }
+
+      @media screen and (max-width: 500px) {
+        padding: 3rem 3.5rem 4rem;
+      }
+
+      &.dark {
+        color: white;
+      }
+
+      figure {
+        font-weight: 800;
+        font-size: 3.6rem;
+        display: block;
+        margin-bottom: 0.333em;
+
+        @media screen and (max-width: 1279px) {
+          font-size: 3.2rem;
+        }
+
+        @media screen and (max-width: 1023px) {
+          font-size: 3rem;
+        }
+
+        @media screen and (max-width: 500px) {
+          font-size: 2.4rem;
+        }
+      }
+
+      h3 {
+        font-size: 3rem;
+        font-weight: 600;
+
+        @media screen and (max-width: 1439px) {
+          font-size: 2.8rem;
+        }
+
+        @media screen and (max-width: 1279px) {
+          font-size: 2.6rem;
+        }
+
+        @media screen and (max-width: 1023px) {
+          font-size: 2.4rem;
+        }
+
+        @media screen and (max-width: 500px) {
+          font-size: 2.2rem;
+        }
+      }
+    }
+  }
+}

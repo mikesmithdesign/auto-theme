@@ -1,0 +1,20 @@
+<div class="grid-wrapper {{module.background}}">
+	<div class="container">
+		<div class="row">
+			{% if module.heading %}
+				<h2>{{module.heading}}</h2>
+			{% endif %}
+			<div class="grid {% if module.borders == 1 %}borders{% endif %} {{module.align_text}} {% if module.grid|length < 4 %}mob-full{% endif %}">
+				{% for item in module.grid %}
+					<div class="grid-item">
+						<div class="img-wrapper">
+							<img src="{{get_image(item.image).src}}" alt="{{get_image(item.image).alt}}">
+						</div>
+						<h3>{{item.heading}}</h3>
+						{{item.text}}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

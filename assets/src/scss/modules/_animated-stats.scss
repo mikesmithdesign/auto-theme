@@ -1,0 +1,80 @@
+.animated-stats {
+  @include standard-padding;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5em;
+
+    @media screen and (max-width: 1599px) {
+      margin-bottom: 1.25em;
+    }
+
+    @media screen and (max-width: 1439px) {
+      margin-bottom: 1em;
+    }
+  }
+
+  .stat-grid {
+    display: flex;
+
+    @media screen and (max-width: 1023px) {
+      flex-wrap: wrap;
+      row-gap: 4rem;
+    }
+
+    @media screen and (max-width: 500px) {
+      row-gap: 3rem;
+    }
+
+    &.three {
+      .stat {
+        @media screen and (max-width: 1023px) {
+          width: 100%;
+        }
+      }
+    }
+    .stat {
+      text-align: center;
+      flex: 1;
+      font-size: 1.8rem;
+
+      @media screen and (max-width: 1279px) {
+        font-size: 1.7rem;
+      }
+
+      @media screen and (max-width: 1023px) {
+        width: 50%;
+        flex: unset;
+        font-size: 1.8rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        font-size: 1.6rem;
+      }
+
+      @media screen and (max-width: 500px) {
+        width: 100%;
+      }
+      figure {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 2em;
+        font-weight: 650;
+        margin-bottom: 0.2em;
+
+        @media screen and (max-width: 1279px) {
+          margin-bottom: 0.1em;
+        }
+
+        @media screen and (max-width: 639px) {
+          font-size: 1.85em;
+        }
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+  }
+}

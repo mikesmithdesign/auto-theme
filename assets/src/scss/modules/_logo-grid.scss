@@ -1,0 +1,122 @@
+.logo-grid {
+  @include standard-padding;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1em;
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 0.75em;
+    }
+  }
+
+  .logo-list {
+    &.row {
+      border: var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media screen and (max-width: 1023px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 3rem;
+        padding: 3rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        padding: 2.5rem;
+        row-gap: 2.5rem;
+      }
+
+      @media screen and (max-width: 509px) {
+        row-gap: 3.5rem;
+      }
+
+      .logo-wrapper {
+        @media screen and (max-width: 1023px) {
+          width: 33.3333333333%;
+        }
+
+        @media screen and (max-width: 639px) {
+          width: 50%;
+        }
+
+        @media screen and (max-width: 500px) {
+          width: 100%;
+        }
+        img {
+          @media screen and (max-width: 1279px) {
+            max-width: 10rem;
+          }
+
+          @media screen and (max-width: 1023px) {
+            max-width: 12.5rem;
+          }
+
+          @media screen and (max-width: 639px) {
+            width: 15rem;
+          }
+        }
+      }
+    }
+
+    &.grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: -2.5rem;
+
+      @media screen and (max-width: 1023px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+        margin-top: -1rem;
+      }
+
+      @media screen and (max-width: 639px) {
+        margin-top: -2rem;
+        gap: 2rem;
+      }
+
+      @media screen and (max-width: 500px) {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+        margin-top: -3rem;
+      }
+
+      a {
+        @media screen and (max-width: 500px) {
+          margin-bottom: -2rem;
+        }
+        img {
+          mix-blend-mode: multiply;
+          width: 25rem;
+
+          @media screen and (max-width: 1439px) {
+            width: 22.5rem;
+          }
+
+          @media screen and (max-width: 1279px) {
+            width: 21.5rem;
+          }
+
+          @media screen and (max-width: 767px) {
+            width: 19rem;
+          }
+
+          @media screen and (max-width: 639px) {
+            width: 17.5rem;
+          }
+
+          @media screen and (max-width: 500px) {
+            margin-bottom: -2rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+<div class="table-wrapper {{module.background}}">
+	<div class="container">
+		<div class="row">
+			{% if module.heading %}
+				<h2 class="multi">{{module.heading}}</h2>
+			{% endif %}
+
+			{% if module.top_text %}
+				{{module.top_text}}
+			{% endif %}
+
+			<div class="table-scroller">
+				<table class="multi">
+					<thead>
+						<tr>
+							<th {% if module.table_headings.column_heading_1 != '' %} class="bg" {% endif %}>{{module.table_headings.column_heading_1}}</th>
+							<th {% if module.table_headings.column_heading_2 != '' %} class="bg" {% endif %}>{{module.table_headings.column_heading_2}}</th>
+							<th {% if module.table_headings.column_heading_3 != '' %} class="bg" {% endif %}>{{module.table_headings.column_heading_3}}</th>
+
+
+							{% if module.columns > 3 %}
+								<th {% if module.table_headings.column_heading_4 != '' %} class="bg" {% endif %}>{{module.table_headings.column_heading_4}}</th>
+
+							{% endif %}
+							{% if module.columns > 4 %}
+								<th {% if module.table_headings.column_heading_5 != '' %} class="bg" {% endif %}>{{module.table_headings.column_heading_5}}</th>
+							{% endif %}
+							{% if module.columns > 5 %}
+								<th {% if module.table_headings.column_heading_6 != '' %} class="bg" {% endif %}>{{module.table_headings.column_heading_6}}</th>
+							{% endif %}
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<td {% if module.table_footer.footer_column_1 != '' %} class="bg" {% endif %}>{{module.table_footer.footer_column_1.text}}</td>
+							<td {% if module.table_footer.footer_column_2 != '' %} class="bg" {% endif %}>{{module.table_footer.footer_column_2.text}}</td>
+							<td {% if module.table_footer.footer_column_3 != '' %} class="bg" {% endif %}>{{module.table_footer.footer_column_3.text}}</td>
+							{% if module.columns > 3 %}
+								<td {% if module.table_footer.footer_column_4 != '' %} class="bg" {% endif %}>{{module.table_footer.footer_column_3.text}}</td>
+							{% endif %}
+							{% if module.columns > 4 %}
+								<td {% if module.table_footer.footer_column_5 != '' %} class="bg" {% endif %}>{{module.table_footer.footer_column_4.text}}</td>
+							{% endif %}
+							{% if module.columns > 5 %}
+								<td {% if module.table_footer.footer_column_6 != '' %} class="bg" {% endif %}>{{module.table_footer.footer_column_5.text}}</td>
+							{% endif %}
+						</tr>
+						<tr>
+							<td {% if module.table_footer.footer_column_1.cta %} class="bg" {% endif %}>
+								{% if module.table_footer.footer_column_1.cta %}
+									<a href="{{module.table_footer.footer_column_1.cta.link}}" target="{{module.table_footer.footer_column_1.target}}">
+										{{module.table_footer.footer_column_1.cta.title}}
+										<i class="fas fa-angle-double-right"></i>
+
+									</a>
+								{% else %}
+									&nbsp;
+								{% endif %}
+							</td>
+							<td {% if module.table_footer.footer_column_2.cta %} class="bg" {% endif %}>
+								{% if module.table_footer.footer_column_2.cta %}
+									<a href="{{module.table_footer.footer_column_2.cta.link}}" target="{{module.table_footer.footer_column_2.target}}">
+										{{module.table_footer.footer_column_2.cta.title}}
+										<i class="fas fa-angle-double-right"></i>
+
+									</a>
+								{% else %}
+									&nbsp;
+								{% endif %}
+							</td>
+
+							<td {% if module.table_footer.footer_column_3.cta %} class="bg" {% endif %}>
+								{% if module.table_footer.footer_column_3.cta %}
+									<a href="{{module.table_footer.footer_column_3.cta.link}}" target="{{module.table_footer.footer_column_3.target}}">
+										{{module.table_footer.footer_column_3.cta.title}}
+										<i class="fas fa-angle-double-right"></i>
+
+									</a>
+								{% else %}
+									&nbsp;
+								{% endif %}
+							</td>
+
+							{% if module.columns > 3 %}
+								<td {% if module.table_footer.footer_column_4.cta %} class="bg" {% endif %}>
+									{% if module.table_footer.footer_column_4.cta %}
+										<a href="{{module.table_footer.footer_column_4.cta.link}}" target="{{module.table_footer.footer_column_4.target}}">
+											{{module.table_footer.footer_column_4.cta.title}}
+											<i class="fas fa-angle-double-right"></i>
+
+										</a>
+									{% else %}
+										&nbsp;
+									{% endif %}
+								</td>
+							{% endif %}
+							{% if module.columns > 4 %}
+								<td {% if module.table_footer.footer_column_5.cta %} class="bg" {% endif %}>
+									{% if module.table_footer.footer_column_5.cta %}
+										<a href="{{module.table_footer.footer_column_5.cta.link}}" target="{{module.table_footer.footer_column_5.target}}">
+											{{module.table_footer.footer_column_5.cta.title}}
+											<i class="fas fa-angle-double-right"></i>
+
+										</a>
+									{% else %}
+										&nbsp;
+									{% endif %}
+								</td>
+							{% endif %}
+							{% if module.columns > 5 %}
+								<td {% if module.table_footer.footer_column_6.cta %} class="bg" {% endif %}>
+									{% if module.table_footer.footer_column_6.cta %}
+										<a href="{{module.table_footer.footer_column_6.cta.link}}" target="{{module.table_footer.footer_column_6.target}}">
+											{{module.table_footer.footer_column_6.cta.title}}
+											<i class="fas fa-angle-double-right"></i>
+
+										</a>
+									{% else %}
+										&nbsp;
+									{% endif %}
+								</td>
+							{% endif %}
+						</tr>
+
+					</tfoot>
+					<tbody>
+						{% for row in module.table_rows %}
+							<tr>
+								<td>
+									{{row.column_1}}
+								</td>
+								<td>{{row.column_2}}</td>
+								<td>{{row.column_3}}</td>
+								{% if module.columns > 3 %}
+									<td>{{row.column_4}}</td>
+								{% endif %}
+								{% if module.columns > 4 %}
+									<td>{{row.column_5}}</td>
+								{% endif %}
+								{% if module.columns > 5 %}
+									<td>{{row.column_6}}</td>
+								{% endif %}
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+
+
+			{% if module.bottom_text %}
+				{{module.bottom_text}}
+			{% endif %}
+		</div>
+	</div>
+</div>

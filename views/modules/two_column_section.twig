@@ -1,0 +1,31 @@
+<div class="two-col-section {% if module.tint_background == 1 %}light{% endif %}">
+	<div class="container">
+		<div class="row">
+			<div class="title">
+				<h2>{{module.heading}}</h2>
+				<div class="text">
+					{{module.text}}
+				</div>
+			</div>
+			<div class="two-col-grid">
+				{% for item in module.columns %}
+					<div class="grid-item">
+						<div class="img">
+							<img src="{{get_image(item.image).src}}" alt="{{get_image(item.image).alt}}">
+						</div>
+						<div class="text">
+							<h3>
+								{{item.heading}}</h3>
+
+							{{item.text}}
+							<a href="{{item.cta.url}}" target={{item.cta.target}}>
+								{{item.cta.title}}
+
+							</a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

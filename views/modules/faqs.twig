@@ -1,0 +1,25 @@
+<div class="faqs {{module.background}}">
+	<div class="container">
+		<div class="row">
+			{% if module.heading %}
+				<h2>{{module.heading}}</h2>
+			{% endif %}
+			{% if module.text %}
+				{{module.text}}
+			{% endif %}
+			<ul class="accordion">
+				{% for question in module.faqs %}
+					<li>
+						<div class="accordion-title">
+							<h3>{{question.question}}</h3>
+							<span class="icon"></span>
+						</div>
+						<div class="accordion-content">
+							{{question.answer}}
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

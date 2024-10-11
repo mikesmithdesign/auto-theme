@@ -1,0 +1,59 @@
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="footer-top">
+				<div class="text">
+					<p>
+						{{options.footer.heading}}
+					</p>
+					<a href="{{options.footer.cta.link}}">
+						<span>{{options.footer.cta.large_text}}</span>
+						{{options.footer.cta.small_text}}
+					</a>
+				</div>
+				<div class="footer-col">
+					<h2>Links</h2>
+					<ul>
+						{% for item in footer_nav.items %}
+							<li>
+								<a href="{{item.link}}" target="{{item.target}}">{{item.title}}</a>
+							</li>
+						</li>
+					{% endfor %}
+				</ul>
+
+			</div>
+			<div class="footer-col">
+				<h2>Contact</h2>
+				<ul>
+					<li>
+						<a href="tel:+44{{options.phone_number}}">{{options.phone_number}}</a>
+					</li>
+					<li>
+						<a href="mailto:{{options.email}}">{{options.email}}</a>
+					</li>
+
+				</ul>
+				<h2>{{options.footer.mobile_service.heading}}</h2>
+				{{options.footer.mobile_service.text}}
+			</div>
+		</div>
+		<div class="footer-logos">
+			<p>{{options.footer.copyright}}</p>
+			{% if options.footer.logos %}
+				<div class="logos">
+					{% for logo in options.footer.logos %}
+						<img src="{{get_image(logo).src}}" alt="{{get_image(logo).alt}}">
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+		<div class="footer-bottom">
+			<a href="/">
+				<img src="{{theme.theme_mod('logo')}}" alt="">
+			</a>
+			<p>© Tracker Team – All Rights Reserved.</p>
+
+		</div>
+	</div>
+</div></footer>

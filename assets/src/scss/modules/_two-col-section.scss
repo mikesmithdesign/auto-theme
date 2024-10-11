@@ -1,0 +1,162 @@
+.two-col-section {
+  @include standard-padding;
+
+  &.light {
+    .two-col-grid {
+      .grid-item {
+        background: white;
+      }
+    }
+  }
+  .title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6rem;
+    align-items: flex-end;
+
+    @media screen and (max-width: 1439px) {
+      margin-bottom: 5rem;
+    }
+
+    @media screen and (max-width: 1023px) {
+      display: block;
+      margin-bottom: 4rem;
+    }
+
+    @media screen and (max-width: 639px) {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      width: 50%;
+      margin-bottom: 0;
+      padding-right: 7.5rem;
+
+      @media screen and (max-width: 1279px) {
+        padding-right: 5rem;
+      }
+
+      @media screen and (max-width: 1023px) {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 0.5em;
+      }
+    }
+
+    .text {
+      width: 50%;
+      padding-left: 2.5rem;
+
+      @media screen and (max-width: 1023px) {
+        width: 100%;
+        padding-left: 0;
+      }
+
+      p > a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .two-col-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+
+    @media screen and (max-width: 1279px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media screen and (max-width: 1023px) {
+      gap: 4rem;
+    }
+
+    @media screen and (max-width: 639px) {
+      gap: 3rem;
+    }
+
+    .grid-item {
+      border-radius: var(--radius);
+      background: var(--bg-light);
+      border: var(--border);
+      display: flex;
+      overflow: hidden;
+
+      @media screen and (max-width: 1279px) {
+        justify-content: space-between;
+      }
+
+      @media screen and (max-width: 639px) {
+        display: block;
+      }
+
+      .img {
+        position: relative;
+        width: 40%;
+
+        @media screen and (max-width: 639px) {
+          width: 100%;
+          aspect-ratio: 6/3.5;
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      .text {
+        padding: 2.5rem;
+        width: 60%;
+        font-size: 1.6rem;
+
+        @media screen and (max-width: 1279px) {
+          padding: 5rem;
+          padding-left: 2.5rem;
+          width: 50%;
+        }
+
+        @media screen and (max-width: 1023px) {
+          width: 60%;
+          padding: 3.5rem 5rem;
+        }
+
+        @media screen and (max-width: 767px) {
+          padding: 3rem 4rem;
+        }
+
+        @media screen and (max-width: 639px) {
+          width: 100%;
+          padding: 3rem 3rem 4rem;
+        }
+
+        @media screen and (max-width: 500px) {
+          padding: 2.5rem 2.5rem 3.5rem;
+        }
+
+        h3 {
+          @media screen and (max-width: 1279px) {
+            margin-bottom: 1em;
+          }
+
+          @media screen and (max-width: 639px) {
+            margin-bottom: 0.75em;
+          }
+        }
+
+        p {
+          margin-bottom: 1em;
+        }
+
+        > a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,391 @@
+.hero-banner,
+.landing-banner {
+  position: relative;
+  color: white;
+
+  &.landing-page {
+    color: var(--text);
+
+    .container {
+      .row {
+        min-height: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        @media screen and (max-width: 1023px) {
+          flex-direction: column;
+        }
+
+        .text {
+          width: 42.5%;
+          padding-bottom: 4rem;
+
+          @media screen and (max-width: 1599px) {
+            width: 50%;
+          }
+
+          @media screen and (max-width: 1279px) {
+            width: 60%;
+            padding: 5rem 5rem 8rem 0;
+          }
+
+          @media screen and (max-width: 1023px) {
+            width: 100%;
+            padding: 1rem 3rem 5rem;
+            order: 2;
+            text-align: center;
+          }
+
+          @media screen and (max-width: 767px) {
+            padding: 1rem 2rem 4.5rem;
+          }
+
+          @media screen and (max-width: 639px) {
+            padding: 1rem 0 4.5rem;
+          }
+
+          @media screen and (max-width: 500px) {
+            padding-bottom: 3.5rem;
+          }
+
+          h1,
+          h2 {
+            font-size: 4.4rem;
+            font-weight: 800;
+            margin-bottom: 0.5em;
+            background-image: linear-gradient(
+              to right,
+              var(--bg-dark),
+              var(--accent)
+            );
+            color: transparent;
+            background-clip: text;
+
+            @media screen and (max-width: 1279px) {
+              font-size: 4rem;
+            }
+
+            @media screen and (max-width: 767px) {
+              font-size: 3.6rem;
+            }
+
+            @media screen and (max-width: 500px) {
+              font-size: 3.2rem;
+            }
+          }
+
+          ul,
+          p {
+            @media screen and (max-width: 1279px) {
+              font-size: 1.6rem;
+            }
+          }
+
+          ul {
+            text-align: left;
+            @media screen and (max-width: 1023px) {
+              display: inline-block;
+            }
+
+            @media screen and (max-width: 639px) {
+              display: block;
+            }
+
+            li {
+              display: flex;
+              margin-bottom: 0.75em;
+              gap: 0.5em;
+              align-items: flex-start;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              &::before {
+                font-family: "fontawesome";
+                content: "\f00c";
+                font-size: 0.5em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 2.5em;
+                aspect-ratio: 1/1;
+                border-radius: 100%;
+                color: white;
+                background: var(--accent);
+                transform: translateY(5%);
+              }
+            }
+          }
+
+          .links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+
+            @media screen and (max-width: 1023px) {
+              justify-content: center;
+            }
+
+            @media screen and (max-width: 500px) {
+              flex-direction: column;
+            }
+
+            .btn {
+              &.dark {
+                background: var(--bg-dark);
+                color: white;
+                &:hover {
+                  background: var(--accent);
+                  color: var(--bg-dark);
+                }
+                &.outline {
+                  color: var(--bg-dark);
+                  border: 2px solid var(--bg-dark);
+                  background: transparent;
+
+                  &:hover {
+                    background: var(--bg-dark);
+                    color: white;
+                  }
+                }
+              }
+
+              &.accent {
+                &.outline {
+                  background: transparent;
+                  color: var(--bg-dark);
+                  border: 2px solid var(--accent);
+
+                  &:hover {
+                    background: var(--accent);
+                  }
+                }
+              }
+
+              &.accenttwo {
+                background: var(--accent-2);
+                color: var(--bg-dark);
+
+                &:hover {
+                  background: var(--accent);
+                }
+
+                &.outline {
+                  background: transparent;
+                  color: var(--bg-dark);
+                  border: 2px solid var(--accent-2);
+
+                  &:hover {
+                    background: var(--accent-2);
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .img-wrapper {
+          width: 50%;
+          padding: 1.5rem 0 0rem 5%;
+
+          @media screen and (max-width: 1599px) {
+            padding-right: 5%;
+          }
+
+          @media screen and (max-width: 1439px) {
+            padding-right: 0;
+          }
+
+          @media screen and (max-width: 1279px) {
+            width: 40%;
+            padding-left: 0;
+          }
+
+          @media screen and (max-width: 1023px) {
+            width: 100%;
+
+            order: 1;
+          }
+
+          img {
+            @media screen and (max-width: 1023px) {
+              width: 65%;
+              display: block;
+              margin: 0 auto;
+            }
+
+            @media screen and (max-width: 639px) {
+              width: 75%;
+            }
+
+            @media screen and (max-width: 500px) {
+              width: 85%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.shallow {
+    .container {
+      .row {
+        min-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .text {
+          width: 100%;
+          padding: 7.5rem 0;
+
+          @media screen and (max-width: 1279px) {
+            padding: 6.5rem 0;
+          }
+
+          @media screen and (max-width: 1023px) {
+            padding: 5.5rem 0;
+          }
+
+          @media screen and (max-width: 500px) {
+            padding: 5rem 0;
+          }
+        }
+      }
+
+      img.tab {
+        display: none;
+      }
+    }
+  }
+
+  img.bg {
+    position: absolute;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background: linear-gradient(90deg, var(--bg-dark), rgba(0, 0, 0, 0));
+
+    &.no-bg {
+      background: var(--bg-dark);
+    }
+  }
+
+  .container {
+    .row {
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+      position: relative;
+      z-index: 2;
+      min-height: 40rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      @media screen and (max-width: 1439px) {
+        padding-top: 7.5rem;
+        padding-bottom: 7.5rem;
+      }
+
+      @media screen and (max-width: 1279px) {
+        min-height: 30rem;
+      }
+
+      @media screen and (max-width: 639px) {
+        min-height: 25rem;
+        padding-top: 6.5rem;
+        padding-bottom: 8rem;
+      }
+
+      @media screen and (max-width: 500px) {
+        min-height: 0;
+        padding-top: 5rem;
+        padding-bottom: 9rem;
+      }
+
+      .text {
+        width: 40%;
+
+        @media screen and (max-width: 1439px) {
+          width: 50%;
+        }
+
+        @media screen and (max-width: 1023px) {
+          width: 75%;
+        }
+
+        @media screen and (max-width: 639px) {
+          width: 100%;
+        }
+
+        h1,
+        h2 {
+          @media screen and (max-width: 500px) {
+            font-size: 3rem;
+          }
+        }
+
+        ul {
+          font-size: 1.8rem;
+          margin-bottom: 1.5em;
+
+          @media screen and (max-width: 767px) {
+            font-size: 1.7rem;
+          }
+
+          @media screen and (max-width: 639px) {
+            font-size: 1.6rem;
+            margin-bottom: 1.25em;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        p {
+          line-height: 1.75;
+        }
+      }
+
+      img.tab {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        @media screen and (max-width: 767px) {
+          width: 22.5rem;
+          right: 3rem;
+        }
+
+        @media screen and (max-width: 639px) {
+          width: 20rem;
+          right: 2rem;
+        }
+
+        @media screen and (max-width: 500px) {
+          right: 0;
+          left: 0;
+          margin: auto;
+          width: 19rem;
+        }
+      }
+    }
+  }
+}

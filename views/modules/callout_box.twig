@@ -1,0 +1,20 @@
+<div class="callout-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="callout-box {{module.layout}}">
+				<div class="img">
+					<img src="{{get_image(module.image).src}}" alt="{{get_image(module.image).alt}}">
+				</div>
+				<div class="text">
+					<h2>{{module.heading}}</h2>
+					<h3>{{module.text}}</h3>
+					{% if module.cta %}
+						<a href="{{module.cta.link}}" target="{{module.cta.target}}" class="btn">
+							{{module.cta.title}}
+						</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

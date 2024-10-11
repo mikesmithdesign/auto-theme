@@ -1,0 +1,20 @@
+<div class="text-image-block  {% if module.image_type == 'graphic' %}graphic{% endif %} {{module.style}}  {{module.layout}} {{module.background}}">
+
+	<div class="container">
+		<div class="row">
+			<div class="img">
+				<img src="{{get_image(module.image).src}}" alt="{{get_image(module.image).alt}}">
+			</div>
+			<div class="text">
+				<h2>{{module.heading}}</h2>
+				{{module.text}}
+				{% if module.cta %}
+					<a href="{{module.cta.url}}" target="{{module.cta.target}}" class="btn">
+						{{module.cta.title}}
+						<i class="fas fa-angle-double-right"></i>
+					</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>

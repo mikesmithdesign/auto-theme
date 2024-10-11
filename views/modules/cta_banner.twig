@@ -1,0 +1,103 @@
+<div class="cta-banner {{module.background}} ">
+	{% if  module.background_image %}
+		<img src="{{get_image(module.background_image).src}}" alt="{{get_image(module.background_image).alt}}">
+	{% endif %}
+	<div class="container">
+		<div class="row">
+			{% if module.main_heading %}
+				<h2>{{module.main_heading}}</h2>
+			{% endif %}
+			<div class="banner-inner {{module.banner_background}}">
+
+				<main>
+					<h3>{{module.main_content.heading}}</h3>
+					{{module.main_content.text}}
+					{% if module.main_content.subheading %}
+						<div class="subheading">
+							<h4>{{module.main_content.subheading}}</h4>
+							<hr>
+						</div>
+					{% endif %}
+					{% if module.main_content.bullets %}
+						<ul class="fa-ul">
+							{% for bullet in module.main_content.bullets %}
+								<li>
+									<span class="fa-li">
+										<i class="fa-solid fa-check-circle"></i>
+									</span>
+									{{bullet.bullet}}
+								</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+					{% if module.main_content.cta_type == "popup" %}
+						<button class="btn" data-trigger="banner-{{module_index}}">
+							{{module.main_content.button_label}}
+
+							<i class="fas fa-angle-double-right"></i>
+						</button>
+					{% else %}
+						{% if module.main_content.cta %}
+							<a href="{{module.main_content.cta.url}}" target="{{module.main_content.cta.target}}" class="btn">
+								{{module.main_content.cta.title}}
+								<i class="fas fa-angle-double-right"></i>
+							</a>
+						{% endif %}
+					{% endif %}
+				</main>
+				{% if module.side_content.image or module.side_content.heading or module.side_content.subheading or module.side_content.cta or module.side_content.note %}
+					<aside {% if module.side_content.image %} class="img" {% endif %}>
+						{% if module.side_content.image %}
+							<div class="img-wrapper">
+								<img src="{{get_image(module.side_content.image).src}}" alt="{{get_image(module.side_content.image).alt}}">
+							</div>
+						{% endif %}
+						{% if module.side_content.heading or module.side_content.subheading or module.side_content.cta or module.side_content.note %}
+							<div class="text">
+								{% if module.side_content.heading %}
+									<h3>{{module.side_content.heading}}</h3>
+								{% endif %}
+								{% if module.side_content.subheading %}
+									<h4>{{module.side_content.subheading}}</h4>
+								{% endif %}
+								{% if module.side_content.cta %}
+									<a href="{{module.side_content.cta.url}}" target="{{module.side_content.cta.target}}" class="btn">
+										{{module.side_content.cta.title}}
+										<i class="fas fa-angle-double-right"></i>
+									</a>
+								{% endif %}
+								{% if module.side_content.note %}
+									<p>{{module.side_content.note}}</p>
+								{% endif %}
+							</div>
+						{% endif %}
+					</aside>
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+</div>
+{% if module.main_content.cta_type == "popup" %}
+	<div class="pop-up-overlay" id="banner-{{module_index}}">
+		<button class="close">
+			<i class="fa-solid fa-xmark"></i>
+		</button>
+		<div class="container">
+			<div class="row">
+				<div class="pop-up form">
+					{% if module.main_content.popup.heading %}
+						<h2>{{module.main_content.popup.heading}}</h2>
+					{% endif %}
+					{% if module.main_content.popup.text %}
+						{{module.main_content.popup.text}}
+					{% endif %}
+
+					{% if module.main_content.popup.form_code %}
+						{{module.main_content.popup.form_code}}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

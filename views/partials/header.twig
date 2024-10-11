@@ -1,0 +1,132 @@
+<header>
+	<div class="header-top">
+		<div class="container">
+			<div class="row">
+				<div class="contact">
+					<div class="ticker-outer">
+						Opening times:
+						<span class="ticker-wrap">
+							<span>
+								{{options.header.opening_times}}
+								<span class="dupe">
+									{{options.header.opening_times}}
+								</span>
+							</span>
+						</span>
+					</div>
+					<div>
+						Call Us:
+						<a href="tel:+{{options.phone_number}}">
+							{{options.phone_number}}
+						</a>
+
+					</div>
+					<button class="btn" data-trigger="callback-form">Call Me Back
+						<i class="fas fa-angle-double-right"></i>
+					</button>
+
+				</div>
+
+
+				<ul class="top-nav">
+
+					{% for item in top_nav.items %}
+						<li>
+							<a href="{{item.link}}" target="{{item.target}}">{{item.title}}</a>
+						</li>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="header-main">
+	<div class="container">
+		<div class="row">
+			<div class="logo">
+				<a href="/">
+					<img src="{{theme.theme_mod('logo')}}" alt="">
+				</a>
+			</div>
+			<form role="search" class="search" method="get" action="{{site.url}}">
+				<input type="search" name="s" id="s" placeholder="Search Trackers">
+				<button type="submit">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="main-nav">
+	<div class="container">
+		<div class="row">
+			<button class="hamburger hamburger--collapse" type="button">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button>
+			<ul>
+				{% for item in menu.items %}
+					<li>
+						<a href="{{item.link}}" target="{{item.target}}">{{item.title}}</a>
+						{% if item.children %}
+							<i class="fa-solid fa-chevron-down"></i>
+							<ul>
+								{% for item in item.children %}
+									<li>
+										<a href="{{item.link}}" target="{{item.target}}">{{item.title}}</a>
+										{% if item.children %}
+											<i class="fa-solid fa-arrow-right"></i>
+											<i class="fa-solid fa-chevron-down"></i>
+											<ul class="icon-nav">
+												{% for item in item.children %}
+													<li>
+														<a href="{{item.link}}" target="{{item.target}}">
+															<div class="icon-box">
+																{% include 'partials/icons/' ~ item.menu_icon ~ '.twig' %}
+															</div>
+															{{item.title}}
+														</a>
+													</li>
+												{% endfor %}
+											</ul>
+										{% endif %}
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>
+{% if options.header.icon_bar %}
+	<div class="icon-bar">
+		<div class="container">
+			<div class="row">
+				<ul>
+					{% for item in options.header.icon_bar %}
+						<li>
+							{% include 'partials/icons/' ~ item.icon ~ '.twig' %}
+							{{item.label}}
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endif %}</header><div class="pop-up-overlay" id="callback-form">
+<button class="close">
+	<i class="fa-solid fa-xmark"></i>
+</button>
+<div class="container">
+	<div class="row">
+		<div class="pop-up form">
+			{{ function('do_shortcode', '[ninja_form id=3]') }}
+
+
+		</div>
+	</div>
+</div></div>

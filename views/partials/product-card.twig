@@ -1,0 +1,39 @@
+{% set price_string = product.price %}
+{% set numeric_price = price_string|replace({'£': '', ',': ''})|split(' ')|first %}
+<div class="product-wrapper {% for term in product.terms %}{{term.slug}} {% endfor %}" data-best-seller="{{product.best_seller ? product.best_seller : 0}}" data-price="{{ numeric_price|number_format(2, '.', '') }}">
+	<a href="{{product.link}}" class="item-card">
+		<div class="item-img">
+			<img src="{{get_image(product.main_image).src}}" alt="{{get_image(product.main_image).src}}">
+		</div>
+		{# <div class="item-text" data-match-height-enable="(min-width: 1024px)" data-match-height="product"> #}
+		<div class="item-text">
+
+			{% if product.best_seller == 1 %}
+				<span class="tag">BEST SELLER</span>
+			{% endif %}
+			<h3>{{product.title}}</h3>
+			<ul class="fa-ul">
+				{% for item in product.overview %}
+					<li>
+						<span class="fa-li">
+							<i class="fa-solid fa-check"></i>
+						</span>
+						{{item.info}}
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="buttons">
+			<div class="price">
+				{{product.price}}
+				{% if product.price_suffix %}
+					<span>{{product.price_suffix}}</span>
+				{% endif %}
+			</div>
+			<div class="btn">
+				Shop Now
+				<i class="fas fa-angle-double-right"></i>
+			</div>
+		</div>
+	</a>
+</div>

@@ -1,0 +1,47 @@
+<style>:root
+{
+	--text: {{theme.theme_mod('text_colour')}};
+	--bg-light: {{theme.theme_mod('light_bg_colour')}};
+	--bg-dark: {{theme.theme_mod('dark_bg_colour')}};
+	--radius: 1rem;
+	--shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+	--accent: {{theme.theme_mod('accent_colour')}};
+	--accent-2: {{theme.theme_mod('secondary_accent_colour')}};
+	--border: 1px solid #bdc5d6;
+}
+
+header .logo img,
+footer .footer-bottom img {
+	width: {{theme.theme_mod('logo_size')}}px;
+}
+
+@media screen and (max-width: 1023px) {
+	header .logo img,
+	footer .footer-bottom img {
+		width: calc({{theme.theme_mod('logo_size')}}px * 0.9);
+	}
+}
+
+@media screen and (max-width: 767px) {
+	header .logo img {
+		width: calc({{theme.theme_mod('logo_size')}}px * 0.8);
+	}
+}
+
+
+@media screen and (max-width: 639px) {
+
+	header .logo img {
+		width: calc({{theme.theme_mod('logo_size')}}px * 0.65);
+	}
+
+	footer .footer-bottom img {
+		width: calc({{theme.theme_mod('logo_size')}}px * 0.8);
+	}
+}
+@media screen and (max-width: 500px) {
+		header .logo img,
+	footer .footer-bottom img {
+		width: calc({{theme.theme_mod('logo_size')}}px * 0.7);
+	}
+}</style>

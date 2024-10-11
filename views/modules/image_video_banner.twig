@@ -1,0 +1,43 @@
+<div class="landing-banner">
+	<div class="overlay {% if module.background_image == '' %}no-bg{% endif %}"></div>
+	{% if module.background_image %}
+		<img class="bg" src="{{get_image(module.background_image).src}}" alt="{{get_image(module.background_image).alt}}">
+	{% endif %}
+	<div class="container">
+		<div class="row">
+			<div class="text">
+				{% if module.heading %}
+					<h2>{{module.heading}}</h2>
+				{% endif %}
+				{% if module.text %}
+					{{module.text}}
+				{% endif %}
+				{% if module.cta %}
+					<a href="{{module.cta.url}}" target="{{module.cta.target}}" class="btn">
+						{{module.cta.title}}
+						<i class="fas fa-angle-double-right"></i>
+					</a>
+				{% endif %}
+				{% if module.bottom_content %}
+					{{module.bottom_content}}
+				{% endif %}
+			</div>
+			<button class="play" data-trigger="vid-banner-{{module_index}}">
+				<i class="fa-solid fa-play"></i>
+			</button>
+		</div>
+	</div>
+</div>
+
+<div class="pop-up-overlay" id="vid-banner-{{module_index}}">
+	<button class="close">
+		<i class="fa-solid fa-xmark"></i>
+	</button>
+	<div class="container">
+		<div class="row">
+			<div class="pop-up video">
+				{{module.video_embed}}
+			</div>
+		</div>
+	</div>
+</div>

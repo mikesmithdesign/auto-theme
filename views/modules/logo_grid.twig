@@ -1,0 +1,26 @@
+<div class="logo-grid {% if module.tint_background == 1 %}light{% endif %}">
+	<div class="container">
+		<div class="row">
+			{% if module.heading %}
+				<h2>{{module.heading}}</h2>
+			{% endif %}
+			<div class="logo-list {{module.style}}">
+				{% for logo in module.logos %}
+					{% if logo.link %}
+						<a class="logo-wrapper" href="{{logo.link.url}}" target="{{logo.link.target}}">
+							<img src="{{get_image(logo.logo).src}}" alt="{{get_image(logo.logo).alt}}">
+							{% if module.style == 'grid' %}
+								<h3>{{logo.link.title}}</h3>
+							{% endif %}
+						</a>
+					{% else %}
+						<div class="logo-wrapper">
+							<img src="{{get_image(logo.logo).src}}" alt="{{get_image(logo.logo).alt}}">
+						</div>
+					{% endif %}
+
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

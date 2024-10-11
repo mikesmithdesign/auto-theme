@@ -1,0 +1,22 @@
+<div class="coloured-boxes {{module.background}}">
+	<div class="container">
+		<div class="row">
+      {% if module.heading %}
+        <h2>{{module.heading}}</h2>
+      {% endif %}
+			<div class="box-grid">
+        {% set counter = 1 %}
+        {% for box in module.cards %}
+          <div class="coloured-box {{box.background}}">
+            {% if box.add_numbering == 1 %}
+              <figure>{{ "%02d"|format(counter) }}.</figure>
+            {% endif %}
+            <h3>{{box.title}}</h3>
+            {{box.text}}
+          </div>
+          {% set counter = counter + 1 %}
+        {% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

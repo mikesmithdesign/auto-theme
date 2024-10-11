@@ -1,0 +1,338 @@
+.landing.graphic {
+  + .product-comparison {
+    padding-top: 0;
+  }
+}
+
+.product-comparison {
+  @include standard-padding;
+  text-align: center;
+  overflow: hidden;
+
+  h2,
+  p {
+    position: relative;
+    z-index: 2;
+  }
+
+  h2 {
+    margin-bottom: 0.75em;
+
+    @media screen and (max-width: 1599px) {
+      margin-bottom: 0.5em;
+    }
+
+    @media screen and (max-width: 1439px) {
+      margin-bottom: 0.5em;
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 0.33em;
+    }
+  }
+
+  p {
+    font-size: 2.2rem;
+    width: 75%;
+    margin: 0 auto 2.5em;
+
+    @media screen and (max-width: 1599px) {
+      margin-bottom: 1.5em;
+    }
+
+    @media screen and (max-width: 1439px) {
+      font-size: 2rem;
+      margin-bottom: 2em;
+    }
+
+    @media screen and (max-width: 1023px) {
+      width: 100%;
+      font-size: 1.8rem;
+      margin-bottom: 1.75em;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  .slider-wrapper {
+    position: relative;
+
+    > {
+      svg {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 125%;
+
+        @media screen and (max-width: 1023px) {
+          height: auto;
+          width: 75%;
+        }
+
+        @media screen and (max-width: 767px) {
+          width: 110%;
+        }
+        path {
+          fill: var(--accent);
+        }
+      }
+    }
+
+    .controls {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      display: flex;
+      font-size: 3.2rem;
+      justify-content: space-between;
+      width: 100%;
+      pointer-events: none;
+      z-index: 3;
+
+      @media screen and (max-width: 500px) {
+        font-size: 2.8rem;
+      }
+
+      @media screen and (max-width: 500px) {
+        left: -1rem;
+        width: unset;
+        right: -1rem;
+      }
+
+      button {
+        cursor: pointer;
+        pointer-events: all;
+      }
+    }
+
+    .comparison-slider {
+      margin: 0 -2rem;
+      position: relative;
+      z-index: 2;
+
+      @media screen and (max-width: 1439px) {
+        margin: 0 -2rem;
+      }
+
+      @media screen and (max-width: 1279px) {
+        margin: 0 -1.5rem;
+      }
+
+      @media screen and (max-width: 1023px) {
+        margin: 0 -1.5rem;
+        padding: 0 4rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        margin: 0;
+        padding: 0;
+      }
+
+      .card-slide {
+        padding: 0 2rem 3rem;
+
+        @media screen and (max-width: 1279px) {
+          padding: 0 1.5rem 3rem;
+        }
+
+        @media screen and (max-width: 767px) {
+          padding: 0 5rem 3rem;
+        }
+
+        @media screen and (max-width: 639px) {
+          padding: 0 4rem 3rem;
+        }
+
+        @media screen and (max-width: 500px) {
+          padding: 0 2rem 1.5rem;
+        }
+
+        .product-card {
+          border-radius: var(--radius);
+          overflow: hidden;
+          box-shadow: var(--shadow);
+          position: relative;
+          background: white;
+
+          &:hover {
+            .text {
+              .features {
+                opacity: 1;
+                pointer-events: all;
+              }
+            }
+          }
+
+          .title {
+            background: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 2rem 2rem 2.5rem;
+
+            @media screen and (max-width: 500px) {
+              padding: 1.5rem 1.5rem 2rem;
+            }
+
+            @media screen and (max-width: 500px) {
+              padding: 1rem 1rem 1.5rem;
+            }
+
+            h4 {
+              order: 1;
+              font-weight: 500;
+              font-size: 1.8rem;
+              margin-bottom: 0.4em;
+
+              @media screen and (max-width: 1023px) {
+                font-size: 1.6rem;
+              }
+
+              @media screen and (max-width: 500px) {
+                font-size: 1.5rem;
+              }
+            }
+
+            h3 {
+              order: 2;
+              font-size: 2.4rem;
+              margin-bottom: 0;
+
+              @media screen and (max-width: 1023px) {
+                font-size: 2.2rem;
+              }
+
+              @media screen and (max-width: 500px) {
+                font-size: 2rem;
+              }
+            }
+          }
+
+          .text {
+            padding: 0 3rem;
+            position: relative;
+
+            .features {
+              align-items: center;
+              text-align: left;
+
+              ul {
+                font-size: 1.6rem;
+
+                @media screen and (max-width: 500px) {
+                  font-size: 1.5rem;
+                }
+
+                li {
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 1rem;
+                  margin-bottom: 0.5em;
+
+                  &:last-child {
+                    margin-bottom: 0;
+                  }
+
+                  .icon {
+                    background: var(--accent-2);
+                    border-radius: 50%;
+                    aspect-ratio: 1/1;
+                    width: 1.8rem;
+                    font-size: 0.75em;
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transform: translateY(0.075em);
+
+                    &.red {
+                      background: #e46c6c;
+                    }
+                  }
+
+                  span {
+                    width: calc(100% - 2.8rem);
+                  }
+                }
+              }
+            }
+            .img-wrapper {
+              margin-top: 1.5rem;
+              height: 22.5rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              @media screen and (max-width: 1279px) {
+                height: 19rem;
+              }
+              @media screen and (max-width: 1023px) {
+                height: 20rem;
+              }
+
+              @media screen and (max-width: 639px) {
+                height: 17.5rem;
+              }
+
+              @media screen and (max-width: 500px) {
+                height: 15rem;
+              }
+
+              img {
+                max-height: 100%;
+              }
+            }
+
+            p {
+              font-size: 1.6rem;
+              margin-bottom: 1em;
+              width: 100%;
+              position: static;
+
+              @media screen and (max-width: 500px) {
+                font-size: 1.5rem;
+              }
+            }
+          }
+
+          .btn {
+            padding: 0.75em 2.9em 1.1em;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+
+            @media screen and (max-width: 1279px) {
+              margin-top: 2.5rem;
+            }
+
+            @media screen and (max-width: 500px) {
+              margin-top: 2.25rem;
+              margin-bottom: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .bottom-text {
+    margin-top: 1rem;
+
+    P {
+      font-size: 1.8rem;
+      margin-bottom: 1em;
+      width: 100%;
+
+      @media screen and (max-width: 767px) {
+        font-size: 1.7rem;
+      }
+
+      @media screen and (max-width: 639px) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

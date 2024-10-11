@@ -1,0 +1,9 @@
+<div class="carousel-slider">
+	{% for image in module.carousel %}
+		<div class="img-slide">
+			<a href="{{get_image(image).src}}" data-fancybox="gallery-{{module_index}}">
+				<img src="{{get_image(image).src}}" alt="{{get_image(image).alt}}">
+			</a>
+		</div>
+	{% endfor %}
+</div>

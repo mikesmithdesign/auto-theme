@@ -1,0 +1,47 @@
+<div class="article-listing {{module.background}}">
+  <div class="container">
+    <div class="row">
+      <div class="article-grid">
+        {% if module.listing_type == "manual" %}
+          {% for article in get_posts(module.posts) %}
+            <article>
+              <a class="article-img" href="{{article.link}}">
+                <span class="tag">Blog</span>
+                <img src="{{get_image(article.listing_image).src}}" alt="{{get_image(article.listing_image).alt}}">
+              </a>
+              <div class="article-text">
+                <div class="text-wrap">
+                <h3>{{article.title}}</h3>
+                <p class="date"><i class="fa-regular fa-calendar-days"></i>Published: {{article.date|date('jS F Y')}}</p>
+                {{article.summary}}
+              </div>
+                <a class="btn" href="{{article.link}}">
+               View Post 	<i class="fas fa-angle-double-right"></i>
+              </a>
+              </div>
+            </article>
+          {% endfor %}
+        {% else %}
+           {% for article in posts %}
+              <article>
+                <a class="article-img" href="{{article.link}}">
+                <span class="tag">Blog</span>
+                  <img src="{{get_image(article.listing_image).src}}" alt="{{get_image(article.listing_image).alt}}">
+                </a>
+                <div class="article-text">
+                <div class="text-wrap">
+                  <h3>{{article.title}}</h3>
+                  <p class="date"><i class="fa-regular fa-calendar-days"></i>Published: {{article.date|date('jS F Y')}}</p>
+                  {{article.summary}}
+                </div>
+                  <a class="btn" href="{{article.link}}">
+                View Post 	<i class="fas fa-angle-double-right"></i>
+                </a>
+                </div>
+            </article>
+           {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

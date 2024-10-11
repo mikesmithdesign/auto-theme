@@ -1,0 +1,296 @@
+.price-comparison {
+  @include standard-padding;
+  text-align: center;
+  position: relative;
+
+  > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.25;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  &.white {
+    .comparison-tables {
+      .product-card {
+        background: var(--bg-light);
+
+        ul {
+          li {
+            &:nth-child(even) {
+              background: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  h2 {
+    margin-bottom: 0.75em;
+
+    @media screen and (max-width: 1439px) {
+      margin-bottom: 0.5em;
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 0.33em;
+    }
+  }
+
+  p {
+    font-size: 2.4rem;
+    margin-bottom: 0;
+
+    @media screen and (max-width: 1023px) {
+      font-size: 2.2rem;
+    }
+
+    @media screen and (max-width: 639px) {
+      font-size: 2rem;
+    }
+  }
+
+  .slider-wrapper {
+    position: relative;
+    .controls {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      display: flex;
+      font-size: 3.2rem;
+      justify-content: space-between;
+      width: 100%;
+      pointer-events: none;
+      z-index: 2;
+
+      @media screen and (max-width: 500px) {
+        font-size: 2.8rem;
+      }
+
+      @media screen and (max-width: 500px) {
+        left: -1rem;
+        width: unset;
+        right: -1rem;
+      }
+
+      button {
+        cursor: pointer;
+        pointer-events: all;
+      }
+    }
+
+    .comparison-tables {
+      margin: 5rem -2rem 0;
+
+      @media screen and (max-width: 1439px) {
+        margin: 4rem -2rem 0;
+      }
+
+      @media screen and (max-width: 1279px) {
+        margin: 4rem -1.5rem 0;
+      }
+
+      @media screen and (max-width: 1023px) {
+        margin: 3.5rem -1.5rem 0;
+        padding: 0 4rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        margin: 3.5rem 0 0;
+        padding: 0;
+      }
+
+      .table-slide {
+        padding: 0 2rem;
+
+        @media screen and (max-width: 1279px) {
+          padding: 0 1.5rem;
+        }
+
+        @media screen and (max-width: 767px) {
+          padding: 0;
+        }
+
+        .product-card {
+          border-radius: var(--radius);
+          background: white;
+          position: relative;
+          overflow: hidden;
+          font-size: 1.8rem;
+          padding-top: 3.5rem;
+          color: var(--text);
+          box-shadow: var(--shadow);
+
+          @media screen and (max-width: 1279px) {
+            font-size: 1.7rem;
+          }
+
+          @media screen and (max-width: 1023px) {
+            font-size: 1.6rem;
+          }
+
+          @media screen and (max-width: 767px) {
+            width: 75%;
+            margin: 0 auto;
+          }
+
+          @media screen and (max-width: 639px) {
+            width: 80%;
+          }
+
+          @media screen and (max-width: 500px) {
+            width: 85%;
+            padding-top: 3rem;
+          }
+
+          .img-slider {
+            margin: -3.5rem 0 2.5rem;
+
+            @media screen and (max-width: 500px) {
+              margin: -3rem 0 2.5rem;
+            }
+
+            .slick-dots {
+              bottom: 2rem;
+
+              li {
+                background: none;
+                height: auto;
+                padding: 0;
+                width: auto;
+
+                &.slick-active {
+                  button {
+                    background: white;
+                  }
+                }
+
+                button {
+                  width: 1rem;
+                  aspect-ratio: 1/1;
+                  background: transparent;
+                  border: 1px solid white;
+                  border-radius: 100%;
+                  height: auto;
+                  box-shadow: 0 0 5px rgba(black, 0.75);
+                  &::before {
+                    content: none;
+                  }
+                }
+              }
+            }
+
+            .img {
+              aspect-ratio: 2/1.125;
+              position: relative;
+
+              img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+          }
+
+          .ribbon {
+            position: absolute;
+            background: var(--accent);
+            color: var(--text);
+            top: 0;
+            right: 0;
+            transform: rotate(45deg) translateX(30%) translateY(-30%);
+            font-size: 1.6rem;
+            padding: 0.3em 3em 0.5em;
+            line-height: 1;
+          }
+
+          .tag {
+            background: var(--bg-dark);
+            color: white;
+            padding: 0.25em 1em 0.5em;
+            border-radius: var(--radius);
+            margin-bottom: 0.25em;
+            display: inline-block;
+            font-size: 0.875em;
+
+            &.placeholder {
+              background: transparent;
+
+              @media screen and (max-width: 767px) {
+                display: none;
+              }
+            }
+          }
+
+          h3,
+          h4,
+          figure {
+            padding: 0 3rem;
+          }
+
+          h3 {
+            font-weight: 650;
+            margin-bottom: 0;
+          }
+
+          h4,
+          figure.small {
+            font-size: 1em;
+            font-weight: 550;
+            margin: 0.75em 0 0.5em;
+          }
+
+          figure {
+            font-size: 2em;
+            font-weight: 800;
+            display: block;
+            margin: 0.65em 0;
+
+            @media screen and (max-width: 500px) {
+              margin: 0.4em 0;
+            }
+
+            &.small {
+              color: var(--bg-dark);
+            }
+          }
+
+          ul {
+            display: block;
+            margin-bottom: 0;
+
+            li {
+              line-height: 1;
+              padding: 0.75em 0 0.85em;
+
+              &:nth-child(even) {
+                background: var(--bg-light);
+              }
+            }
+          }
+
+          a.btn {
+            width: 100%;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<div class="product-listing  {% if module.tint_background == 1 %}light{% endif %}">
+
+	<div class="container">
+		<div class="row">
+			{% if module.title %}
+				<h2>{{module.title}}</h2>
+			{% endif %}
+			{% if module.show_filter == 1 or module.show_sort_options ==  1 %}
+				<div class="filter-bar">
+
+					<div class="sort">
+						<button>
+							Sort by
+							<div class="icon">
+								<i class="fas fa-chevron-down"></i>
+							</div>
+						</button>
+
+						<ul class="sort-options">
+							<li class="active">
+								<button data-sort="best-seller">Best Sellers</button>
+							</li>
+							<li>
+								<button data-sort="price-low">Price (Low to High)</button>
+							</li>
+							<li>
+								<button data-sort="price-high">Price (High to Low)</button>
+							</li>
+						</ul>
+					</div>
+
+					{% if module.show_filter == 1 %}
+						<div class="filter">
+							<button>
+								Filter
+								<span class="counter"></span>
+								<i class="fa-solid fa-filter"></i>
+							</button>
+
+							<ul class="filter-options">
+								{% for category in module.category %}
+									<li>
+										<button data-filter="{{category.slug}}">{{category.name}}</button>
+									</li>
+								{% endfor %}
+								<li>
+									<button class="reset">
+										<i class="fa-solid fa-arrow-rotate-left"></i>Reset Filters
+									</button>
+								</li>
+							</ul>
+						</div>
+					{% endif %}
+
+				</div>
+			{% endif %}
+			<div class="item-listing">
+				{% if module.listing_type == 'manual' %}
+					{% for product in get_posts(module.products) %}
+						{% include 'partials/product-card.twig' %}
+					{% endfor %}
+				{% else %}
+					{% set products = product_queries[product_listing_index] %}
+					{% for product in products %}
+						{% include 'partials/product-card.twig' %}
+					{% endfor %}
+				{% endif %}
+
+			</div>
+			{% if module.cta %}
+				<div class="cta-wrapper">
+					<a href="{{module.cta.url}}" target="{{module.cta.target}}">
+						{{module.cta.title}}
+						<i class="fas fa-angle-double-right"></i>
+					</a>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>

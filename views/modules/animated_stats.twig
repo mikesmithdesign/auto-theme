@@ -1,0 +1,36 @@
+<div class="animated-stats {{module.background}}">
+<div class="container">
+  <div class="row">
+  
+  {% if module.heading %}
+    <h2>{{module.heading}}</h2>
+  {% endif %}
+
+
+  <div class="stat-grid {% if module.stats|length == 3 %}three{% endif %}">
+    {% for stat in module.stats %}
+    <div class="stat">
+    <figure>
+    {% if stat.stat.prefix %}
+    <span class="prefix">
+      {{stat.stat.prefix}}
+    </span>
+    {% endif %}
+    <span data-count="{{stat.stat.stat}}" data-increment="{{stat.increment}}">0</span>
+     {% if stat.stat.suffix %}
+    <span class="suffix">
+      {{stat.stat.suffix}}
+    </span>
+    {% endif %}
+    </figure>
+  
+    {% if stat.caption %}
+      <p>{{stat.caption}}</p>
+    {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  
+  </div>
+</div>
+</div>

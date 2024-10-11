@@ -1,0 +1,332 @@
+.text-image-block {
+  position: relative;
+  &.video {
+    padding: 10rem 0;
+
+    @media screen and (max-width: 1599px) {
+      padding: 7.5rem 0;
+    }
+
+    @media screen and (max-width: 1439px) {
+      padding: 6.5rem 0;
+    }
+
+    @media screen and (max-width: 1279px) {
+      padding: 5.5rem 0;
+    }
+
+    @media screen and (max-width: 1023px) {
+      @include standard-padding;
+    }
+    .row {
+      .video {
+        display: flex;
+        align-items: center;
+
+        .wistia_responsive_padding {
+          width: 100%;
+          border-radius: var(--radius);
+          overflow: hidden;
+        }
+      }
+      .text {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &.right {
+    .row {
+      .text {
+        order: 1;
+        padding-left: 0;
+        padding-right: 15rem;
+        margin-left: 0;
+
+        @media screen and (max-width: 1439px) {
+          padding-right: 12.5rem;
+        }
+
+        @media screen and (max-width: 1279px) {
+          padding-right: 5rem;
+        }
+
+        @media screen and (max-width: 1023px) {
+          padding-left: 4.5rem;
+          padding-right: 4.5rem;
+        }
+
+        @media screen and (max-width: 767px) {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+
+      .img {
+        left: unset;
+        right: 0;
+      }
+
+      .video,
+      .img {
+        order: 2;
+      }
+    }
+  }
+
+  &.landing {
+    @include standard-padding;
+
+    &.graphic {
+      + .graphic {
+        padding-top: 0;
+        margin-top: -6.5rem;
+
+        @media screen and (max-width: 1439px) {
+          margin-top: -6rem;
+        }
+
+        @media screen and (max-width: 1279px) {
+          margin-top: -5rem;
+        }
+
+        @media screen and (max-width: 1023px) {
+          margin-top: -1rem;
+        }
+
+        @media screen and (max-width: 639px) {
+          margin-top: -2rem;
+        }
+      }
+      .row {
+        align-items: center;
+
+        .text {
+          @media screen and (max-width: 1023px) {
+            text-align: center;
+          }
+
+          @media screen and (max-width: 639px) {
+            padding-top: 2.5rem;
+          }
+
+          @media screen and (max-width: 500px) {
+            padding-top: 1.5rem;
+          }
+
+          h2 {
+            @media screen and (max-width: 500px) {
+              margin-bottom: 0.4em;
+            }
+          }
+        }
+
+        .img {
+          @media screen and (max-width: 1023px) {
+            width: 75%;
+            margin: 0 auto;
+          }
+
+          @media screen and (max-width: 767px) {
+            width: 85%;
+          }
+
+          @media screen and (max-width: 639px) {
+            width: 100%;
+          }
+          img {
+            position: static;
+            width: 100%;
+            height: auto;
+            object-fit: unset;
+          }
+        }
+      }
+    }
+
+    .row {
+      .text {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        margin-left: 0;
+
+        @media screen and (max-width: 1023px) {
+          padding-top: 4rem;
+          padding-bottom: 0;
+        }
+
+        @media screen and (max-width: 767px) {
+          padding-top: 3.5rem;
+        }
+
+        @media screen and (max-width: 500px) {
+          padding-top: 3rem;
+        }
+      }
+
+      .img {
+        position: relative;
+        height: auto;
+        border-radius: var(--radius);
+        overflow: hidden;
+
+        @media screen and (max-width: 1023px) {
+          width: calc(100% - 9rem);
+          margin-left: 4.5rem;
+          margin-right: 4.5rem;
+          aspect-ratio: unset;
+        }
+
+        @media screen and (max-width: 767px) {
+          margin: 0;
+          width: 100%;
+        }
+
+        img {
+          @media screen and (max-width: 1023px) {
+            position: static;
+          }
+        }
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+
+    @media screen and (max-width: 1023px) {
+      display: block;
+    }
+
+    .video,
+    .img,
+    .text {
+      width: 50%;
+
+      @media screen and (max-width: 1023px) {
+        width: 100%;
+      }
+    }
+
+    .img {
+      position: absolute;
+      left: 0;
+      height: 100%;
+
+      @media screen and (max-width: 1023px) {
+        position: relative;
+        aspect-ratio: 2/1;
+        margin: 0 -4rem;
+        width: calc(100% + 8rem);
+      }
+
+      @media screen and (max-width: 639px) {
+        aspect-ratio: 3/2;
+      }
+
+      @media screen and (max-width: 500px) {
+        margin-left: -3rem;
+        margin-right: -3rem;
+        width: calc(100% + 6rem);
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    .video {
+      @media screen and (max-width: 1023px) {
+        width: calc(100% - 9rem);
+        margin-left: 4.5rem;
+        aspect-ratio: 16/9;
+        margin-bottom: 4rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        margin-left: 0;
+        width: 100%;
+        margin-bottom: 3.5rem;
+      }
+
+      @media screen and (max-width: 500px) {
+        margin-bottom: 3rem;
+      }
+    }
+
+    .text {
+      margin-left: 50%;
+
+      @media screen and (max-width: 1023px) {
+        margin-left: 0;
+      }
+    }
+
+    .video {
+      position: relative;
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--radius);
+      }
+    }
+
+    .text {
+      font-size: 1.6rem;
+      @include standard-padding;
+      padding-left: 15rem;
+
+      @media screen and (max-width: 1439px) {
+        padding-left: 12.5rem;
+      }
+
+      @media screen and (max-width: 1279px) {
+        padding-left: 5rem;
+      }
+
+      @media screen and (max-width: 1023px) {
+        padding-left: 4.5rem;
+        padding-right: 4.5rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      h2 {
+        font-size: 2em;
+        margin-bottom: 0.8em;
+
+        @media screen and (max-width: 639px) {
+          margin-bottom: 0.65em;
+          font-size: 1.75em;
+        }
+
+        @media screen and (max-width: 500px) {
+          font-size: 1.65em;
+        }
+      }
+
+      p:last-of-type {
+        margin-bottom: 2em;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+<div class="product-info {{module.background}}">
+	<div class="container">
+		<div class="row">
+			{% if module.breadcrumb %}
+				<ul class="breadcrumb mob">
+					{% for item in module.breadcrumb %}
+						<li>
+							<a href="{{item.link.url}}" target="{{item.link.target}}">
+								{{item.link.title}}
+							</a>
+						</li>
+						<li>
+							{% if module.title %}
+								{{module.title}}
+							{% else %}
+								{{post.title}}
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+			<div class="gallery">
+				{% if module.images %}
+					<div class="thumbs">
+						<button data-index="0" class="active">
+							<img src=" {{get_image(post.main_image).src}} " alt=" {{get_image(post.main_image).alt}}} "></button>
+						{% set count = 1 %}
+						{% for image in module.images %}
+							<button data-index="{{count}}">
+								<img src="{{get_image(image).src}}" alt="{{get_image(image).alt}}}">
+							</button>
+							{% set count = count + 1 %}
+						{% endfor %}
+					</div>
+				{% endif %}
+				<div class="product-gallery">
+					<img src="{{get_image(post.main_image).src}}" alt="{{get_image(post.main_image).alt}}}">
+					{% for image in module.images %}
+						<img src="{{get_image(image).src}}" alt="{{get_image(image).alt}}}">
+					{% endfor %}
+				</div>
+			</div>
+			<div class="text">
+				{% if module.breadcrumb %}
+					<ul class="breadcrumb">
+						{% for item in module.breadcrumb %}
+							<li>
+								<a href="{{item.link.url}}" target="{{item.link.target}}">
+									{{item.link.title}}
+								</a>
+							</li>
+							<li>
+								{% if module.title %}
+									{{module.title}}
+								{% else %}
+									{{post.title}}
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+				{% if module_index == 0 %}
+					<h1>
+						{% if module.title %}
+							{{module.title}}
+						{% else %}
+							{{post.title}}
+						{% endif %}
+					</h1>
+				{% else %}
+					<h2>
+						{% if module.title %}
+							{{module.title}}
+						{% else %}
+							{{post.title}}
+						{% endif %}
+					</h2>
+				{% endif %}
+				<p class="price">{{post.price}}
+					{% if post.price_suffix %}
+						<span>{{post.price_suffix}}</span>
+					{% endif %}
+				</p>
+
+				{{module.description}}
+				<button class="btn" data-trigger="product-{{module_index}}">
+
+					{{module.button.text}}
+					<i class="fas fa-angle-double-right"></i>
+				</button>
+				{% if module.finance_info %}
+					<p class="finance">{{module.finance_info}}</p>
+				{% endif %}
+				<div class="bottom-text">
+					{% if module.bottom_text %}
+						{{module.bottom_text}}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="pop-up-overlay" id="product-{{module_index}}">
+	<button class="close">
+		<i class="fa-solid fa-xmark"></i>
+	</button>
+	<div class="container">
+		<div class="row">
+			<div class="pop-up form">
+				<h2>{{module.form.heading}}</h2>
+				{{module.form.text}}
+				{{module.form.form_code}}
+			</div>
+		</div>
+	</div>
+</div>

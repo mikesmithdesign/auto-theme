@@ -1,0 +1,184 @@
+.callback-form {
+  position: relative;
+  @include standard-padding;
+
+  @media screen and (max-width: 1023px) {
+    padding: 0;
+  }
+
+  &::after {
+    background: var(--bg-dark);
+    left: 50%;
+    width: 50%;
+    top: 0;
+    height: 100%;
+    content: "";
+    position: absolute;
+
+    @media screen and (max-width: 1023px) {
+      content: none;
+    }
+  }
+
+  .row {
+    display: flex;
+    position: relative;
+    z-index: 2;
+
+    @media screen and (max-width: 1023px) {
+      display: block;
+    }
+
+    .text,
+    .form {
+      width: 50%;
+
+      @media screen and (max-width: 1023px) {
+        width: 100%;
+      }
+    }
+
+    .text {
+      padding-right: 15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @media screen and (max-width: 1439px) {
+        padding-right: 12.5rem;
+      }
+
+      @media screen and (max-width: 1279px) {
+        padding-right: 5rem;
+      }
+
+      @media screen and (max-width: 1023px) {
+        padding: 4rem 4.5rem 5rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        padding: 3.5rem 0 5rem;
+      }
+
+      @media screen and (max-width: 500px) {
+        padding: 3.25rem 0 4.5rem;
+      }
+
+      h2 {
+        line-height: 1.2;
+        margin-bottom: 0.8em;
+
+        @media screen and (max-width: 500px) {
+          margin-bottom: 0.75em;
+        }
+      }
+
+      hr {
+        border-top: 1px solid var(--text);
+        margin: 0 0 2rem;
+      }
+    }
+
+    .form {
+      padding-left: 15rem;
+      color: white;
+      text-align: center;
+      font-size: 1.8rem;
+
+      @media screen and (max-width: 1439px) {
+        padding-left: 12.5rem;
+      }
+
+      @media screen and (max-width: 1279px) {
+        padding-left: 5rem;
+      }
+
+      @media screen and (max-width: 1023px) {
+        padding: 0;
+        background: var(--bg-dark);
+        margin: 0 -4rem;
+        width: calc(100% + 8rem);
+        text-align: left;
+        padding: 4rem 8.5rem 5rem;
+      }
+
+      @media screen and (max-width: 767px) {
+        padding: 3.5rem 4rem 5rem;
+      }
+
+      @media screen and (max-width: 500px) {
+        padding: 3.25rem 3rem 4.5rem;
+        margin: 0 -3rem;
+        width: calc(100% + 6rem);
+        font-size: 1.6rem;
+      }
+
+      h3 {
+        font-size: 3rem;
+        margin-bottom: 1.25em;
+        text-align: center;
+
+        @media screen and (max-width: 1439px) {
+          font-size: 2.8rem;
+          margin-bottom: 1em;
+        }
+
+        @media screen and (max-width: 767px) {
+          margin-bottom: 0.75em;
+        }
+
+        @media screen and (max-width: 500px) {
+          font-size: 2.4rem;
+        }
+      }
+    }
+  }
+}
+.nf-form-layout {
+  form {
+    .nf-form-content {
+      input {
+        border-radius: 0.5rem;
+
+        &[type="submit"] {
+          border-radius: 0.5rem;
+          background: var(--accent);
+          color: var(--text);
+          font-weight: 700;
+          font-size: 1.6rem;
+          padding: 1em 2.9em 1.2em;
+          line-height: 1.2;
+          display: inline-block;
+          height: auto;
+          cursor: pointer;
+          text-align: center;
+          width: 100%;
+          transition: background 0.3s ease;
+
+          &:hover {
+            background: var(--accent-2);
+          }
+        }
+      }
+
+      .nf-field-container {
+        @media screen and (max-width: 639px) {
+          margin-bottom: 1.5rem;
+        }
+
+        &.hidden-container {
+          margin-bottom: 0;
+        }
+      }
+
+      .submit-container {
+        margin-bottom: 0;
+      }
+      label {
+        @media screen and (max-width: 1279px) {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}

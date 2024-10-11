@@ -1,0 +1,55 @@
+  {% if module.next_post %}
+    {% set next_link = module.next_post.url %}
+    {% set next_title = module.next_post.title %}
+    {% set next_target = module.next_post.target %}
+  {% else %}
+    {% if post.next %}
+      {% set next_link = post.next.link %}
+      {% set next_title = post.next.title %}
+      {% set next_target = '' %}
+    {% endif %}
+  {% endif %}
+  {% if module.previous_post %}
+    {% set prev_link = module.previous_post.url %}
+    {% set prev_title = module.previous_post.title %}
+    {% set prev_target = module.previous_post.target %}
+  {% else %}
+  {% if post.prev %}
+      {% set prev_link = post.prev.link %}
+      {% set prev_title = post.prev.title %}
+      {% set prev_target = '' %}
+    {% endif %}
+  {% endif %}
+
+
+
+
+<div class="post-links {{module.background}}">
+  <div class="container">
+    <div class="row">
+      {% if module.heading %}
+        <h3>{{module.heading}}</h3>
+      {% endif %}
+      <div class="links">
+      {% if next_link %}
+        <a href="{{next_link}}" target="{{next_target}}" class="next">
+        <i class="fa-solid fa-chevron-left"></i>
+      <div class="text">
+          <span>Next Post</span>
+      <h4>{{next_title}}</h4>
+      </div>
+        </a>
+           {% endif %}
+        {% if prev_link %}
+         <a href="{{prev_link}}" target="{{prev_target}}" class="prev">
+          <div class="text">
+          <span>Previous Post</span>
+          <h4>{{prev_title}}</h4>
+          </div>
+           <i class="fa-solid fa-chevron-right"></i>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

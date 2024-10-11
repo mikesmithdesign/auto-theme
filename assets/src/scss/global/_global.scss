@@ -1,0 +1,106 @@
+body,
+html {
+  font-size: 10px;
+  background: white;
+  color: var(--text);
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+
+  .row {
+    padding: 0 3rem;
+
+    @media screen and (max-width: 1439px) {
+      padding: 0 7.5rem;
+    }
+
+    @media screen and (max-width: 1279px) {
+      padding: 0 3rem;
+    }
+
+    @media screen and (max-width: 1023px) {
+      padding: 0 4rem;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding: 0 3rem;
+    }
+  }
+}
+
+@mixin standard-padding {
+  padding: 6.5rem 0 7.5rem;
+
+  @media screen and (max-width: 1439px) {
+    padding: 6rem 0 7rem;
+  }
+
+  @media screen and (max-width: 1279px) {
+    padding: 5rem 0 6rem;
+  }
+
+  @media screen and (max-width: 1023px) {
+    padding: 4rem 0 5rem;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 3.5rem 0 5rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 3.25rem 0 4.5rem;
+  }
+}
+
+div.white {
+  background: white;
+}
+
+div.light {
+  background: var(--bg-light);
+}
+
+div.dark {
+  background: var(--bg-dark);
+  color: white;
+}
+
+div.accent {
+  background: var(--accent);
+}
+
+.icon-bar-hover-whatsapp {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  background: #2ed46d;
+  z-index: 99;
+  color: white;
+  font-size: 2.8rem;
+  width: 2em;
+  aspect-ratio: 1/1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+
+  &:hover {
+    @media (hover: hover) {
+      background: #5773b8;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 2.4rem;
+  }
+}

@@ -1,0 +1,18 @@
+{% extends 'layouts/base.twig' %}
+{% block content %}
+	<div class="page-builder">
+		{% set module_index = 0 %}
+		{% set product_listing_index = 0 %}
+		{% for module in post.meta('modules') %}
+			{% include 'modules/' ~ module.acf_fc_layout ~ '.twig' %}
+			{% set module_index = module_index + 1 %}
+			{% if module.acf_fc_layout == 'product_listing' %}
+				{% set product_listing_index = product_listing_index + 1 %}
+			{% endif %}
+			{% set module_index = module_index + 1 %}
+
+		{% endfor %}
+
+
+	</div>
+{% endblock %}
