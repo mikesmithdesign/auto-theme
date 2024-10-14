@@ -450,9 +450,13 @@ header {
 
                 ul.icon-nav {
                   opacity: 1;
+                  z-index: 2;
+                  pointer-events: all;
 
                   @media screen and (max-width: 1279px) {
                     display: block;
+                    pointer-events: all;
+                    z-index: 1;
                   }
                 }
               }
@@ -472,6 +476,7 @@ header {
                 transition: opacity 0.3s ease;
                 box-shadow: var(--shadow);
                 z-index: 1;
+                pointer-events: none;
 
                 @media screen and (max-width: 1279px) {
                   position: static;

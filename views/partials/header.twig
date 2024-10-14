@@ -111,7 +111,9 @@
 				<ul>
 					{% for item in options.header.icon_bar %}
 						<li>
-							{% include 'partials/icons/' ~ item.icon ~ '.twig' %}
+							{% if item.icon != 'trustpilot' %}
+								{% include 'partials/icons/' ~ item.icon ~ '.twig' %}
+							{% endif %}
 							{{item.label}}
 						</li>
 					{% endfor %}
@@ -127,8 +129,6 @@
 	<div class="row">
 		<div class="pop-up form">
 			{{ function('do_shortcode', '[ninja_form id=3]') }}
-
-
 		</div>
 	</div>
 </div></div>

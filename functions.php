@@ -130,5 +130,6 @@ class StarterSite extends Timber\Site
 require_once('library/gutenberg.php');
 require_once('library/styles_scripts.php');
 require_once('library/customiser.php');
+require_once('library/comments.php');
 
 new StarterSite();

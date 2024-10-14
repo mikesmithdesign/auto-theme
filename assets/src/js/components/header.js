@@ -1,18 +1,22 @@
 import $ from 'jquery';
 
 function calculateIconNav() {
-  let iconNav = document.querySelector('.icon-nav');
-  let parent = iconNav.parentElement.parentElement
-  let mainNav = document.querySelector('.main-nav ul');
+  let iconNavs = document.querySelectorAll('.icon-nav');
 
-  let parentHeight = parent.offsetHeight;
-  iconNav.style.height = parentHeight + 'px';
+  iconNavs.forEach(iconNav => {
+    let parent = iconNav.parentElement.parentElement;
+    let mainNav = document.querySelector('.main-nav ul');
 
-  let parentWidth = parent.offsetWidth;
-  let containerWidth = mainNav.offsetWidth;
-  let difference = mainNav.getBoundingClientRect().left - parent.getBoundingClientRect().left;
 
-  iconNav.style.width = containerWidth - parentWidth + difference + 'px';
+    let parentHeight = parent.offsetHeight;
+    iconNav.style.height = parentHeight + 'px';
+
+    let parentWidth = parent.offsetWidth;
+    let containerWidth = mainNav.offsetWidth;
+    let difference = mainNav.getBoundingClientRect().left - parent.getBoundingClientRect().left;
+
+    iconNav.style.width = containerWidth - parentWidth + difference + 'px';
+  });
 }
 
 window.addEventListener('load', calculateIconNav);
