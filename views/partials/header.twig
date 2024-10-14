@@ -83,9 +83,11 @@
 												{% for item in item.children %}
 													<li>
 														<a href="{{item.link}}" target="{{item.target}}">
+														{% if item.menu_icon != 'none' %}
 															<div class="icon-box">
 																{% include 'partials/icons/' ~ item.menu_icon ~ '.twig' %}
 															</div>
+															{% endif %}
 															{{item.title}}
 														</a>
 													</li>

@@ -17,6 +17,7 @@
                 "id": ""
             },
             "choices": {
+                "none": "None",
                 "car": "Car",
                 "caravan": "Caravan",
                 "hgv": "HGV",
@@ -26,7 +27,7 @@
                 "trailer": "Trailer",
                 "van": "Van"
             },
-            "default_value": false,
+            "default_value": "none",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -54,5 +55,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1725900684
+    "modified": 1728914269
 }
