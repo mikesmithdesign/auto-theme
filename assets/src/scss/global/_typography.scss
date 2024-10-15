@@ -100,9 +100,9 @@ p {
 .text-block,
 .tab-wrapper,
 .product-info {
-  ul:not(.breadcrumb) {
+  ul:not(.breadcrumb),
+  ol {
     font-size: 1.8rem;
-    list-style-type: disc;
     padding-left: 1em;
     margin-bottom: 1.5em;
 
@@ -124,6 +124,20 @@ p {
       margin-bottom: 0.6em;
       padding-left: 0.25em;
 
+      &::marker {
+        content: unset;
+        font-weight: 700;
+      }
+    }
+  }
+
+  ol {
+    list-style: decimal;
+  }
+  ul:not(.breadcrumb) {
+    list-style-type: disc;
+
+    li {
       &::marker {
         content: unset;
       }
