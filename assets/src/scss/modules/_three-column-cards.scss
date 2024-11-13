@@ -206,6 +206,11 @@
             &::marker {
               content: none;
             }
+
+            a {
+              text-decoration: underline;
+              color: var(--bg-dark);
+            }
             &::before {
               font-size: 0.65em;
               font-family: "fontawesome";
