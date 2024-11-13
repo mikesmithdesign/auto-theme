@@ -23,7 +23,7 @@ mix
         processCssUrls: false
     })
     .browserSync({
-        proxy: "tracker.local:8888",
+        proxy: "ghost.local:8888",
         files: [
             "./assets/dist/*",
             "./assets/src/js/**/*.js",

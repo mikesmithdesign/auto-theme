@@ -1,5 +1,5 @@
 {
-  "name": "auto-theme",
+  "name": "mikesmithdesign/auto-theme",
   "type": "wordpress-theme",
   "require": {
     "timber/timber": "*"

@@ -1,26 +1,84 @@
 <div class="card-wrapper {{module.background}}">
+	{% if  module.background_image %}
+		<img src="{{get_image(module.background_image).src}}" alt="{{get_image(module.background_image).alt}}">
+	{% endif %}
+
 	<div class="container">
 		<div class="row">
 			{% if module.heading %}
 				<h2>{{module.heading}}</h2>
 			{% endif %}
+			{% if module.text %}
+				{{module.text}}
+			{% endif %}
+
 			<div class="cards">
 				{% for card in module.cards %}
+					{% set card_count = 1 %}
 					<div class="card">
-						<div class="card-img">
-							<img src="{{get_image(card.image).src}}" alt="{{get_image(card.image).alt}}}">
-						</div>
-						<div class="card-text">
-							<h3>{{card.title}}</h3>
-							{{card.text}}
+						{% if card.image %}
+							<div class="card-img">
+								<img src="{{get_image(card.image).src}}" alt="{{get_image(card.image).alt}}}">
+							</div>
+						{% endif %}
+						<div class="card-text {% if card.centre_text == 1 %} centre {% endif %}">
+							<div class="text-wrap">
+								<h3>{{card.title}}</h3>
+								{{card.text}}
+							</div>
+							{% if card.cta_type == "popup" %}
+								<button class="btn" data-trigger="cards-{{module_index}}-{{card_count}}">
+
+
+									{{card.button_label}}
+									<i class="fas fa-angle-double-right"></i>
+								</button>
+							{% else %}
+								<a href="{{card.cta.url}}" target="{{card.cta.target}}" class="btn">
+									{{card.cta.title}}
+									<i class="fas fa-angle-double-right"></i>
+								</a>
+							{% endif %}
 						</div>
 					</div>
+
+
 				{% endfor %}
 			</div>
 			{% if module.bottom_text %}
 				{{module.bottom_text}}
 			{% endif %}
-
 		</div>
 	</div>
 </div>
+
+{% for card in module.cards %}
+	{% set card_count = 1 %}
+
+	{% if card.cta_type == "popup" %}
+		<div class="pop-up-overlay" id="cards-{{module_index}}-{{card_count}}">
+			<button class="close">
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+			<div class="container">
+				<div class="row">
+					<div class="pop-up form">
+						{% if card.popup.heading %}
+							<h2>{{card.popup.heading}}</h2>
+						{% endif %}
+						{% if card.popup.text %}
+							<p>
+								{{card.popup.text}}</p>
+
+						{% endif %}
+
+						{% if card.popup.form_code %}
+							{{card.popup.form_code}}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	{% set card_count = card_count + 1 %}
+{% endfor %}

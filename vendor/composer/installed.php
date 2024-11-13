@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'pr-it/axovia-theme',
+        'name' => 'mikesmithdesign/auto-theme',
         'pretty_version' => '1.0.0+no-version-set',
         'version' => '1.0.0.0',
         'reference' => null,
@@ -19,7 +19,7 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'pr-it/axovia-theme' => array(
+        'mikesmithdesign/auto-theme' => array(
             'pretty_version' => '1.0.0+no-version-set',
             'version' => '1.0.0.0',
             'reference' => null,
