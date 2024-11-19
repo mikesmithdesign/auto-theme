@@ -12,7 +12,7 @@
 		{% include 'partials/customiser.twig' %}
 
 	</head>
-	<body>
+	<body {{ fn('body_class') }}>
 		<div class="loader"></div>
 		<a href="https://wa.me/+447985514265" target="_blank" class="icon-bar-hover-whatsapp">
 			<i class="fab fa-whatsapp"></i>
@@ -93,4 +93,4 @@
 			{% block content %}{% endblock %}
 		</main>
 		{% include 'partials/footer.twig' %}{{ function('wp_footer') }}</body>
-</html></body></html></body></html>
+</html></body></html></body></html></body></html>

@@ -1,3 +1,55 @@
+{% if options.footer.faqs.faqs %}
+
+
+	<div class="faqs light">
+		<div class="container">
+			<div class="row">
+				{% if options.footer.faqs.heading %}
+					<h2>{{options.footer.faqs.heading}}</h2>
+				{% endif %}
+				{% if options.footer.faqs.text %}
+					{{options.footer.faqs.text}}
+				{% endif %}
+				<ul class="accordion">
+					{% for question in options.footer.faqs.faqs %}
+						<li>
+							<div class="accordion-title">
+								<h3>{{question.question}}</h3>
+								<span class="icon"></span>
+							</div>
+							<div class="accordion-content">
+								{{question.answer}}
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endif %}
+{% if options.footer.trustpilot.code %}
+	<div class="embed light">
+		<div class="container">
+			<div class="row">
+				<h2>{{options.footer.trustpilot.heading}}</h2>
+				<div class="embed-wrapper">
+					{{options.footer.trustpilot.code}}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+{% if options.footer.gallery %}
+	<div class="footer-gallery">
+		{% for image in options.footer.gallery %}
+			<div class="img-slide">
+				<a href="{{get_image(image).src}}" data-fancybox>
+					<img src="{{get_image(image).src}}" alt="{{get_image(image).alt}}">
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+{% endif %}
 <footer>
 	<div class="container">
 		<div class="row">

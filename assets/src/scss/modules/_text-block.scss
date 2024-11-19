@@ -1,6 +1,31 @@
 .text-block {
   @include standard-padding;
 
+  h2 {
+    font-size: 4rem;
+    margin-bottom: 0.75em;
+
+    @media screen and (max-width: 1439px) {
+      font-size: 3.6rem;
+    }
+
+    @media screen and (max-width: 1279px) {
+      font-size: 3.2rem;
+    }
+
+    @media screen and (max-width: 767px) {
+      font-size: 2.8rem;
+    }
+
+    @media screen and (max-width: 639px) {
+      font-size: 2.4rem;
+    }
+
+    @media screen and (max-width: 500px) {
+      font-size: 2.2rem;
+    }
+  }
+
   h3 {
     margin-bottom: 1em;
 
@@ -12,6 +37,11 @@
   ul,
   ol {
     margin-left: 1.25em;
+  }
+
+  iframe {
+    aspect-ratio: 16/9;
+    width: 100%;
   }
 
   &.sidebar {

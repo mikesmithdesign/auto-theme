@@ -21,3 +21,4 @@ import "./modules/blog";
 import "./modules/stats";
 import "./modules/comparison";
 import "./modules/carousel";
+import "./modules/footer-gallery";

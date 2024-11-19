@@ -7,14 +7,43 @@
 			<div class="text">
 				<h2>{{module.heading}}</h2>
 				{{module.text}}
-				{% if module.cta %}
-					<a href="{{module.cta.url}}" target="{{module.cta.target}}" class="btn">
-						{{module.cta.title}}
+				{% if module.cta_type == "popup" %}
+					<button class="btn" data-trigger="module-{{module_index}}">
+						{{module.button_label}}
 						<i class="fas fa-angle-double-right"></i>
-
-					</a>
+					</button>
+				{% else %}
+					{% if module.cta %}
+						<a href="{{module.cta.url}}" target="{{module.cta.target}}" class="btn">
+							{{module.cta.title}}
+							<i class="fas fa-angle-double-right"></i>
+						</a>
+					{% endif %}
 				{% endif %}
 			</div>
 		</div>
 	</div>
 </div>
+{% if module.cta_type == "popup" %}
+	<div class="pop-up-overlay" id="module-{{module_index}}">
+		<button class="close">
+			<i class="fa-solid fa-xmark"></i>
+		</button>
+		<div class="container">
+			<div class="row">
+				<div class="pop-up form">
+					{% if module.popup.heading %}
+						<h2>{{module.popup.heading}}</h2>
+					{% endif %}
+					{% if module.popup.text %}
+						<p>
+							{{module.popup.text}}</p>
+					{% endif %}
+					{% if module.popup.form_code %}
+						{{module.popup.form_code}}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
