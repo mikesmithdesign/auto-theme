@@ -41,7 +41,7 @@
 									{{popup.content}}
 								{% endif %}
 								{% if popup.cta %}
-									<a href="{{popup.cta.link}}" target="{{popup.cta.target}}" class="btn">
+									<a href="{{popup.cta.url}}" target="{{popup.cta.target}}" class="btn">
 										{{popup.cta.title}}
 										<i class="fas fa-angle-double-right"></i>
 									</a>
@@ -73,7 +73,7 @@
 										{{popup.content}}
 									{% endif %}
 									{% if popup.cta %}
-										<a href="{{popup.cta.link}}" target="{{popup.cta.target}}" class="btn">
+										<a href="{{popup.cta.url}}" target="{{popup.cta.target}}" class="btn">
 											{{popup.cta.title}}
 											<i class="fas fa-angle-double-right"></i>
 										</a>
@@ -82,11 +82,9 @@
 							</div>
 						</div>
 					</div>
-
 				{% endif %}
 			{% endfor %}
 		{% endif %}
-
 
 		{% include 'partials/header.twig' %}
 		<main>
