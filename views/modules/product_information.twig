@@ -91,11 +91,20 @@
 				{% if module.finance_info %}
 					<p class="finance">{{module.finance_info}}</p>
 				{% endif %}
-				<div class="bottom-text">
-					{% if module.bottom_text %}
+
+				{% if module.bottom_text %}
+					<div class="bottom-text">
 						{{module.bottom_text}}
-					{% endif %}
-				</div>
+					</div>
+				{% endif %}
+
+				{% if module.bottom_box %}
+					<p class="bottom-box">
+						{{module.bottom_box}}
+					</p>
+				{% endif %}
+
+
 			</div>
 		</div>
 	</div>

@@ -263,7 +263,8 @@
         }
       }
 
-      .finance {
+      .finance,
+      .bottom-box {
         text-align: center;
         border: 1px solid var(--text);
         padding: 0.6em 0.7em 0.7em;
@@ -274,6 +275,10 @@
         p {
           margin-bottom: 0;
         }
+      }
+
+      .bottom-box {
+        margin-top: 1.25em;
       }
     }
   }
