@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-free/js/brands";
 
 // Global
 import "./global/load";
+import "./global/utm";
 
 // Components
 import "./components/header";
