@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 // Function to capture UTM parameters and save to localStorage
+// Function to capture UTM parameters and save to localStorage
 const trackUTMParameters = () => {
   console.group('Tracking UTM Parameters');
   const urlParams = new URLSearchParams(window.location.search);
@@ -15,10 +16,10 @@ const trackUTMParameters = () => {
     'gclid'
   ];
 
-  // Object to store our UTM data
-  const utmData = {};
+  // Object to store our UTM data, initialize all params with empty string
+  const utmData = Object.fromEntries(utmParams.map(param => [param, '']));
 
-  // Get each UTM parameter if it exists
+  // Update with any parameters that exist in URL
   utmParams.forEach(param => {
     const value = urlParams.get(param);
     if (value && !value.startsWith('http')) {
@@ -26,18 +27,22 @@ const trackUTMParameters = () => {
     }
   });
 
-  // If we found any UTM parameters, save them
-  if (Object.keys(utmData).length > 0) {
+  // Save UTM data if we have any non-empty values
+  if (Object.values(utmData).some(value => value !== '')) {
     localStorage.setItem('utm_data', JSON.stringify(utmData));
     console.log('UTM Parameters saved:', utmData);
   }
   console.groupEnd();
   return utmData;
 };
+document.addEventListener('DOMContentLoaded', () => {
+  trackUTMParameters();
+});
 
-// Function to populate UTM fields
+// Function to populate UTM fields// Function to populate UTM fields
 const populateUTMFields = () => {
   const utmData = JSON.parse(localStorage.getItem('utm_data') || '{}');
+  console.log('UTM Data from localStorage:', utmData); // Log the full UTM data
 
   const formContainers = document.querySelectorAll('.nf-form-cont');
   console.log(`Found ${formContainers.length} form containers`);
@@ -65,9 +70,13 @@ const populateUTMFields = () => {
       ];
 
       utmParams.forEach((param, index) => {
-        if (utmFields[index] && utmData[param]) {
-          utmFields[index].value = utmData[param];
-          console.log(`Set ${param} = ${utmData[param]}`);
+        const field = utmFields[index];
+        if (field) {
+          const value = utmData[param] || ''; // Use empty string as default
+          field.value = value;
+          console.log(`${param}: ${value || 'not set'}`); // Log every parameter attempt
+        } else {
+          console.log(`Field not found for ${param}`);
         }
       });
     }
@@ -77,7 +86,6 @@ const populateUTMFields = () => {
 
   return totalFieldsFound;
 };
-
 // Keep track of attempts
 let attempts = 0;
 const maxAttempts = 50; // 5 seconds maximum (50 * 100ms)
