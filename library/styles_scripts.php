@@ -2,7 +2,7 @@
 
 function scripts_styles() {
     wp_enqueue_style('app', get_template_directory_uri() . '/assets/dist/app.css', array(), '0.0.36');
-    wp_enqueue_script('app', get_template_directory_uri() . '/assets/dist/app.js', array(), '0.0.21', true);
+    wp_enqueue_script('app', get_template_directory_uri() . '/assets/dist/app.js', array(), '0.0.23', true);
 }
 
 add_action('wp_enqueue_scripts', 'scripts_styles');
