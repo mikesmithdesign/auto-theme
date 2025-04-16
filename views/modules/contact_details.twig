@@ -1,27 +1,37 @@
-<div class="contact-details {{module.background}}">
-	<div class="container">
-		<div class="row">
-			<aside>
-				<ul class="contact">
-					{% for icon in module.contact_icons %}
-						<li>
-							<a class="icon" href="{{icon.link.url}}" target="{{icon.link.target}}">
-								<i class="{{icon.icon|trim('fa-classic')}}"></i>
-							</a>
+<div class="contact-details {{ module.background }}">
+  <div class="container">
+    <div class="row">
+      <aside>
+        <ul class="contact">
+          {% for icon in module.contact_icons %}
+          <li>
+            <a
+              class="icon{% if icon.tracking_class %} {{
+                icon.tracking_class
+              }}{% endif %}"
+              href="{{ icon.link.url }}"
+              target="{{ icon.link.target }}">
+              <i class="{{icon.icon|trim('fa-classic')}}"></i>
+            </a>
 
-							<span class="text">
-								<p>{{icon.title}}</p>
-								<a href="{{icon.link.url}}" target="{{icon.link.target}}">
-									{{icon.link.title}}
-								</a>
-							</span>
-						</li>
-					{% endfor %}
-				</ul>
-			</aside>
-			<main>
-				{{module.form_code}}
-			</main>
-		</div>
-	</div>
+            <span class="text">
+              <p>{{ icon.title }}</p>
+              <a
+                class="{% if icon.tracking_class %} {{
+                  icon.tracking_class
+                }}{% endif %}"
+                href="{{ icon.link.url }}"
+                target="{{ icon.link.target }}">
+                {{ icon.link.title }}
+              </a>
+            </span>
+          </li>
+          {% endfor %}
+        </ul>
+      </aside>
+      <main>
+        {{ module.form_code }}
+      </main>
+    </div>
+  </div>
 </div>
