@@ -6,9 +6,7 @@
           {% for icon in module.contact_icons %}
           <li>
             <a
-              class="icon{% if icon.tracking_class %} {{
-                icon.tracking_class
-              }}{% endif %}"
+              class="icon"
               href="{{ icon.link.url }}"
               target="{{ icon.link.target }}">
               <i class="{{icon.icon|trim('fa-classic')}}"></i>

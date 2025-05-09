@@ -1,5 +1,5 @@
 import $ from 'jquery';
 
 $(window).on('load', function () {
-  $('.loader').fadeOut(300);
+  // $('.loader').fadeOut(300);
 })
