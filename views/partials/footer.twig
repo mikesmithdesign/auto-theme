@@ -27,7 +27,7 @@
 		</div>
 	{% endif %}
 {% endif %}
-
+{% if not fn('is_front_page') %}
 {% if options.footer.trustpilot.code %}
 	<div class="embed light">
 		<div class="container">
@@ -39,6 +39,7 @@
 			</div>
 		</div>
 	</div>
+{% endif %}
 {% endif %}
 {% if options.footer.gallery %}
 	<div class="footer-gallery">
